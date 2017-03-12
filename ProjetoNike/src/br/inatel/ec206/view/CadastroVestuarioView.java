@@ -42,9 +42,9 @@ public class CadastroVestuarioView extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastroVestuarioView() {
-		setTitle("Vestuario");
+		setTitle("Cadastrar Vestuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 602, 519);
+		setBounds(100, 100, 657, 519);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -127,5 +127,13 @@ public class CadastroVestuarioView extends JFrame {
 		JButton btnUpload = new JButton("Upload");
 		btnUpload.setBounds(410, 245, 89, 23);
 		contentPane.add(btnUpload);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBounds(336, 357, 114, 65);
+		contentPane.add(btnCadastrar);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.setBounds(494, 357, 115, 65);
+		contentPane.add(btnSair);
 	}
 }
