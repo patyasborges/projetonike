@@ -14,7 +14,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
 
-public class VestuarioView extends JFrame {
+public class CadastroVestuarioView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtDescricao;
@@ -29,7 +29,7 @@ public class VestuarioView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VestuarioView frame = new VestuarioView();
+					CadastroVestuarioView frame = new CadastroVestuarioView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class VestuarioView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VestuarioView() {
+	public CadastroVestuarioView() {
 		setTitle("Vestuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 602, 519);
