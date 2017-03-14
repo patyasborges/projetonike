@@ -35,8 +35,8 @@ public class UsuarioDAO
 				 conecta._pst.setString(2, Nome_usu);
 				 conecta._pst.setString(3, Data_nascimento_usu);
 				 conecta._pst.setString(4, email_usu);
-				 conecta._pst.setInt(3, Tipo_usu);
-				 conecta._pst.setString(4, foto_usu);
+				 conecta._pst.setInt(5, Tipo_usu);
+				 conecta._pst.setString(6, foto_usu);
 
 
 				 // Executo a pesquisa
@@ -134,32 +134,34 @@ public class UsuarioDAO
 		 }
 		 
 		// (2.2) SELECT POR NOME OU POR PARTE DE UM NOME
-		 public List<Administrador> selecionaPorUsername()
+		 public List<Usuario> selecionaPorNome()
 		 {
 			 // Lista que recebera todos os registros desta tabela
-			 List<Administrador> listaAdministrador = new ArrayList<>();
+			 List<Usuario> listaUsuario = new ArrayList<>();
 			 try 
 			 {
 				 // Conecto com o Banco
-				 conectaBanco();
+				 conecta.conectaBanco();
 				 // Preparo a consulta
-				 _pst = _con.prepareStatement("SELECT * FROM administrador WHERE aCodigo in (SELECT aCodigo from administrador where aUserName like ?)");
+				 conecta._pst =  conecta._con.prepareStatement("SELECT * FROM Usuario WHERE ID_usu in (SELECT ID_usu from Usuario where Nome_usu like ?)");
 				 // Indico que o primeiro ? significa o nome digitado pelo usuario
-				 _pst.setString(1,"%"+username+"%");
+				 conecta._pst.setString(1,"%"+Nome_usu+"%");
 				 // O ResultSet gera uma tabela de dados retornados por uma pesquisa SQL.
-				 _rs = _pst.executeQuery();
+				 conecta._rs =  conecta._pst.executeQuery();
 				 // O metodo next() caminha entre as linhas da tabela de resultados retornada.
 				 
-				 while (_rs.next()) 
+				 while ( conecta._rs.next()) 
 				 {
 					// A cada nova interacao, cria um novo objeto Administrador
-					 Administrador adm = new Administrador();
-					 adm.setCodAdm(_rs.getInt(1));
-					 adm.setUsername(_rs.getString(2));
-					 adm.setTipoUsu(_rs.getInt(3));
-					 adm.setSenha(_rs.getString(4));
+					 Usuario usu = new Usuario();
+					 usu.setID_usu(conecta._rs.getInt(1));
+					 usu.setNome_usu(conecta._rs.getString(2));
+					 usu.setData_nascimento_usu(conecta._rs.getString(3));
+					 usu.setEmail_usu(conecta._rs.getString(4));
+					 usu.setTipo_usu(conecta._rs.getInt(5));
+					 usu.setFoto_usu(conecta._rs.getString(6));
 
-					 listaAdministrador.add(adm);
+					 listaUsuario.add(usu);
 				 }
 				 System.out.println("Sucesso! ;)");
 			 } 
@@ -172,17 +174,17 @@ public class UsuarioDAO
 				 // Independente se a conexao deu certo ou errado, fecha as conexoes pendentes
 				 try
 				 {
-					 if (_rs != null) 
+					 if ( conecta._rs != null) 
 					 {
-						 _rs.close();
+						 conecta._rs.close();
 					 }
-					 if (_st != null) 
+					 if ( conecta._st != null) 
 					 {
-						 _st.close();
+						 conecta._st.close();
 					 }
-					 if (_con != null) 
+					 if ( conecta._con != null) 
 					 {
-						 _con.close();
+						 conecta._con.close();
 					 }
 				 } 
 				 catch (SQLException ex) 
@@ -190,6 +192,100 @@ public class UsuarioDAO
 					 System.out.println("Erro: Conexão não pode ser fechada! :(");
 				 }
 			 }
-			 return listaAdministrador;
+			 return listaUsuario;
 		 }
+		 
+		// (3) UPDATE
+		 public void update()
+		 {
+			 // Conecto com o Banco
+			 conecta.conectaBanco();
+			 try 
+			 {
+				 // Preparo a atualizacao
+				 conecta._pst = conecta._con.prepareStatement("UPDATE Usuario SET Nome_usu = ?,Data_nascimento_usu = ?,email_usu =?, Tipo_usu=?, Foto_usu=? WHERE ID_usu = ?");
+				
+				 conecta._pst.setString(1, Nome_usu);
+				 conecta._pst.setString(2, Data_nascimento_usu);
+				 conecta._pst.setString(3, email_usu);
+				 conecta._pst.setInt(4, Tipo_usu);
+				 conecta._pst.setString(5, foto_usu);
+				 conecta._pst.setInt(6, ID_usu);
+				  
+				 // Executo a atualizacao
+				 conecta._pst.executeUpdate();
+				 //System.out.println("Sucesso! ;)");
+			 } 
+			 catch (SQLException ex)
+			 {
+				 System.out.println("Erro: Conexão Banco! :(");
+			 } 
+			 finally
+			 {
+				 // Independente se a conexao deu certo ou errado, fecha as conexoes pendentes
+				 try
+				 {
+					 if (conecta._rs != null) 
+					 {
+						 conecta._rs.close();
+					 }
+					 if (conecta._pst != null) 
+					 {
+						 conecta._pst.close();
+					 }
+					 if (conecta._con != null)
+					 {
+						 conecta._con.close();
+					 }
+				 } 
+				 catch (SQLException ex)
+				 {
+					 System.out.println("Erro: Conexão não pode ser fechada! :(");
+				 }
+			 }
+		}
+		 
+		// (4) DELETE
+		 public void delete()
+		 {
+			 // Conecto com o Banco
+			 conecta.conectaBanco();
+			 try
+			 {
+				 // Preparo a exclusao
+				 conecta._pst = conecta._con.prepareStatement("DELETE FROM Usuario WHERE ID_usu = ?");
+				 conecta._pst.setInt(1, ID_usu);
+				 
+				 // Executo a exclusao
+				 conecta._pst.executeUpdate();
+				 System.out.println("Sucesso! ;)");
+			 }
+			 catch (SQLException ex) 
+			 {
+				 System.out.println("Erro: Conexão Banco! :(");
+			 }
+			 finally
+			 {
+				 // Independente se a conexao deu certo ou errado, fecha as conexoes pendentes
+				 try
+				 {
+					 if (conecta._rs != null)
+					 {
+						 conecta._rs.close();
+					 }
+					 if (conecta._pst != null)
+					 {
+						 conecta._pst.close();
+					 }
+					 if (conecta._con != null)
+					 {
+						 conecta._con.close();
+					 }
+				 }
+				 catch (SQLException ex)
+				 {
+					 System.out.println("Erro: Conexão não pode ser fechada! :(");
+				 }
+			}
+		}
 }
