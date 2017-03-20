@@ -38,7 +38,7 @@ public class Conecta
 			 } 
 			 catch (SQLException ex) 
 			 {
-				 System.out.println("Erro: Conexão Banco! :(" + ex.getMessage());
+				 System.out.println("Erro aqui: Conexão Banco! :(" + ex.getMessage());
 			 }
 		 }
 

@@ -6,10 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import br.inatel.ec206.controller.UsuarioDAO;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JButton;
 
@@ -20,6 +26,10 @@ public class CadastroUsuarioView extends JFrame {
 	private JTextField txtDataNasc;
 	private JTextField txtEmail;
 
+	
+	JRadioButton rdbtnComum;
+	JRadioButton rdbtnAdministrador;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -79,11 +89,11 @@ public class CadastroUsuarioView extends JFrame {
 		txtEmail.setBounds(170, 167, 222, 26);
 		contentPane.add(txtEmail);
 		
-		JRadioButton rdbtnComum = new JRadioButton("Comum");
+		rdbtnComum = new JRadioButton("Comum");
 		rdbtnComum.setBounds(158, 224, 89, 29);
 		contentPane.add(rdbtnComum);
 		
-		JRadioButton rdbtnAdministrador = new JRadioButton("Administrador");
+		rdbtnAdministrador = new JRadioButton("Administrador");
 		rdbtnAdministrador.setBounds(254, 224, 138, 29);
 		contentPane.add(rdbtnAdministrador);
 		
@@ -102,12 +112,64 @@ public class CadastroUsuarioView extends JFrame {
 		contentPane.add(btnUpload);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(txtNome.getText().equals("")|| txtDataNasc.getText().equals("")|| txtEmail.getText().equals("") || ( !rdbtnAdministrador.isSelected() && !rdbtnComum.isSelected()) )
+				{
+					JOptionPane.showMessageDialog(null,"Digite os Dados!","Aviso",JOptionPane.WARNING_MESSAGE);
+				}
+				else
+				{
+					fazerCadastroUsuario();
+				}
+				
+			}
+		});
 		btnCadastrar.setBounds(227, 294, 114, 65);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				dispose();
+			}
+		});
 		btnSair.setBounds(385, 294, 115, 65);
 		contentPane.add(btnSair);
+		
+	}
+	
+	protected void fazerCadastroUsuario() 
+	{
+		UsuarioDAO usu = new UsuarioDAO();
+		usu.setNome_usu(txtNome.getText());
+		usu.setData_nascimento_usu(txtDataNasc.getText());
+		usu.setEmail_usu(txtEmail.getText());
+		
+		if(rdbtnAdministrador.isSelected())
+		{
+			usu.setTipo_usu(1);
+		}
+		else
+		{
+			if(rdbtnComum.isSelected())
+			{
+				usu.setTipo_usu(2);
+			}
+		}
+		
+		usu.setFoto_usu("Imagem Nao Definida");
+		usu.armazenaNovosDados();
+		
+		txtNome.setText("");
+		txtDataNasc.setText("");
+		txtEmail.setText("");
+		rdbtnAdministrador.setSelected(false);
+		rdbtnComum.setSelected(false);
 	}
 
 }

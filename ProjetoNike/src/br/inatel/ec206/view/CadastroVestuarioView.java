@@ -6,11 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import br.inatel.ec206.controller.VestuarioDAO;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import java.awt.Color;
 
@@ -21,6 +28,11 @@ public class CadastroVestuarioView extends JFrame {
 	private JTextField txtPreco;
 	private JTextField txtTamanho;
 	private JTextField txtCor;
+	
+	JRadioButton rdbtnFeminino;
+	JRadioButton rdbtnMasculino;
+	JComboBox cbbxMarca;
+	JComboBox cbbxTipoEsporte;
 
 	/**
 	 * Launch the application.
@@ -83,15 +95,15 @@ public class CadastroVestuarioView extends JFrame {
 		lblMarca.setBounds(15, 402, 69, 20);
 		contentPane.add(lblMarca);
 		
-		JRadioButton rdbtnFeminino = new JRadioButton("Feminino");
+		rdbtnFeminino = new JRadioButton("Feminino");
 		rdbtnFeminino.setBounds(83, 103, 107, 29);
 		contentPane.add(rdbtnFeminino);
 		
-		JRadioButton rdbtnMasculino = new JRadioButton("Masculino");
+		rdbtnMasculino = new JRadioButton("Masculino");
 		rdbtnMasculino.setBounds(197, 103, 114, 29);
 		contentPane.add(rdbtnMasculino);
 		
-		JComboBox cbbxTipoEsporte = new JComboBox();
+		cbbxTipoEsporte = new JComboBox();
 		cbbxTipoEsporte.setBounds(83, 160, 193, 26);
 		contentPane.add(cbbxTipoEsporte);
 		
@@ -110,7 +122,7 @@ public class CadastroVestuarioView extends JFrame {
 		txtCor.setBounds(102, 341, 174, 26);
 		contentPane.add(txtCor);
 		
-		JComboBox cbbxMarca = new JComboBox();
+		cbbxMarca = new JComboBox();
 		cbbxMarca.setBounds(83, 399, 193, 26);
 		contentPane.add(cbbxMarca);
 		
@@ -129,6 +141,20 @@ public class CadastroVestuarioView extends JFrame {
 		contentPane.add(btnUpload);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(txtDescricao.getText().equals("") || txtTamanho.getText().equals("") || txtCor.getText().equals("") || txtPreco.getText().equals("") || (!rdbtnFeminino.isSelected() && !rdbtnMasculino.isSelected()))
+				{
+					JOptionPane.showMessageDialog(null,"Insira os Dados!","Aviso",JOptionPane.WARNING_MESSAGE);
+				}	
+				else
+				{
+					cadastroVestuario();
+				}
+			}			
+		});
 		btnCadastrar.setBounds(336, 357, 114, 65);
 		contentPane.add(btnCadastrar);
 		
@@ -136,4 +162,35 @@ public class CadastroVestuarioView extends JFrame {
 		btnSair.setBounds(494, 357, 115, 65);
 		contentPane.add(btnSair);
 	}
+	
+
+private void cadastroVestuario() 
+{
+
+		VestuarioDAO vest = new VestuarioDAO();
+		vest.setDescricao_vest(txtDescricao.getText());
+		if(rdbtnFeminino.isSelected())
+		{
+			vest.setGenero_vest("F");
+		}
+		else
+		{
+			if(rdbtnMasculino.isSelected())
+			{
+				vest.setGenero_vest("M");
+			}
+		}
+		
+		/*
+		if()
+		{
+			vest.setID_esporte(1);
+		}
+		*/
+		
+		vest.armazenaNovosDados();
+		JOptionPane.showMessageDialog(null, "Vestuario Cadastrado");
+	
+	}
+	
 }

@@ -6,11 +6,21 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import br.inatel.ec206.controller.UsuarioDAO;
+import br.inatel.ec206.model.Usuario;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DeletaUsuarioView extends JFrame {
 
@@ -46,6 +56,21 @@ public class DeletaUsuarioView extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnPesquisar = new JButton("Pesquisar");
+		btnPesquisar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(txtNome.getText().equals(""))
+				{
+					JOptionPane.showMessageDialog(null,"Digite os Dados!","Aviso",JOptionPane.WARNING_MESSAGE);
+				}
+				else
+				{
+					pesquisarUsuario();
+				}
+				
+			}
+		});
 		btnPesquisar.setBounds(462, 39, 115, 29);
 		contentPane.add(btnPesquisar);
 		
@@ -54,6 +79,27 @@ public class DeletaUsuarioView extends JFrame {
 		contentPane.add(btnSair);
 		
 		JButton btnDeletar = new JButton("Deletar");
+		btnDeletar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				if(txtNome.getText().equals(""))
+				{
+					System.out.println("Digite os dados");
+				}
+				else
+				{
+					int dialogButton = JOptionPane.YES_NO_OPTION;
+					int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja mesmo deletar Usuario?","Warning",dialogButton);
+					if(dialogResult == JOptionPane.YES_OPTION)
+					{
+						deletarUsuario();
+					}
+					
+				}
+				
+			}
+		});
 		btnDeletar.setBounds(244, 175, 114, 65);
 		contentPane.add(btnDeletar);
 		
@@ -76,5 +122,47 @@ public class DeletaUsuarioView extends JFrame {
 		lblNome.setBounds(15, 43, 100, 20);
 		contentPane.add(lblNome);
 	}
+	
+	protected void pesquisarUsuario()
+	{
+			UsuarioDAO usu = new UsuarioDAO();
+			List<Usuario> listaUsuario = new ArrayList<>();
+			
+			int idUsu, tipousu;
+			String nomeusu, datanasc, email,foto;
+			
+			usu.setNome_usu(txtNome.getText());
+			
+			listaUsuario = usu.selecionaPorNome();
+			idUsu = listaUsuario.get(0).getID_usu();
+			nomeusu = listaUsuario.get(0).getNome_usu();
+			datanasc = listaUsuario.get(0).getData_nascimento_usu();
+			email = listaUsuario.get(0).getEmail_usu();
+			tipousu = listaUsuario.get(0).getTipo_usu();
+			foto = listaUsuario.get(0).getFoto_usu();
+			
+			usu.setID_usu(idUsu);
+			
+			//txtNome.setText(usu.getNome_usu());
+	}
+	
+	
+	protected void deletarUsuario()
+	{
+
+			UsuarioDAO usu = new UsuarioDAO();
+			List<Usuario> listaUsu = new ArrayList<>();
+			int idUsu;
+			usu.setNome_usu(txtNome.getText());
+
+			listaUsu = usu.selecionaPorNome();
+			idUsu= listaUsu.get(0).getID_usu();
+			System.out.println(idUsu);
+			usu.setID_usu(idUsu);
+			
+			usu.delete();
+			JOptionPane.showMessageDialog(null, "Usuario Deletado!");
+	}
+
 
 }
