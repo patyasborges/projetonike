@@ -1,9 +1,10 @@
-package br.inatel.ec206.controller;
+package br.inatel.ec206.model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.inatel.ec206.controller.Conecta;
 import br.inatel.ec206.model.Usuario;
 
 public class UsuarioDAO 

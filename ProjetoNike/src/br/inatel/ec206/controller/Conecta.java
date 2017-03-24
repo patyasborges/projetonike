@@ -10,13 +10,13 @@ import java.sql.Statement;
 public class Conecta
 {
 	    // Abre conexao com o Banco
-		 Connection _con = null;
+		 public Connection _con = null;
 		 // Recebe a resposta da consulta do banco
-		 ResultSet _rs = null;
+		 public ResultSet _rs = null;
 		 // Permite o envio de comandos ESTATICOS SQL para o banco
-		 Statement _st = null;
+		 public Statement _st = null;
 		 // Permite o envio de comandos DINAMICOS SQL para o banco
-		 PreparedStatement _pst = null;
+		 public PreparedStatement _pst = null;
 		 // String indicando com qual schema havera conexao
 		 // Obs: Cada driver possui uma sintaxe diferente para a url
 		 

@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.inatel.ec206.controller.VestuarioDAO;
+import br.inatel.ec206.model.VestuarioDAO;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
