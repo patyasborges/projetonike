@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class EsportesView extends JFrame {
+public class ClienteView extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class EsportesView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EsportesView frame = new EsportesView();
+					ClienteView frame = new ClienteView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class EsportesView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EsportesView() {
+	public ClienteView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

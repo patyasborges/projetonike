@@ -28,7 +28,7 @@ import javax.swing.AbstractAction;
 import java.awt.event.ActionEvent;
 import javax.swing.Action;
 
-public class CalcadosView extends JFrame {
+public class CadastroCalcadoView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField Descricao_calc_textField;
@@ -66,7 +66,7 @@ public class CalcadosView extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CalcadosView() {
+	public CadastroCalcadoView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();

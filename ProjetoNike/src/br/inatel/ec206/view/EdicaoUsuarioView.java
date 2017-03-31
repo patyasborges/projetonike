@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.inatel.ec206.controller.UsuarioDAO;
+import br.inatel.ec206.model.UsuarioDAO;
 import br.inatel.ec206.model.Usuario;
 
 import javax.swing.JTextField;
