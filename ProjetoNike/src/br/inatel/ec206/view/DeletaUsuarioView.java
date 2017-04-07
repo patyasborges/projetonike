@@ -7,25 +7,31 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.inatel.ec206.model.UsuarioDAO;
-import br.inatel.ec206.model.Usuario;
+import br.inatel.ec206.controller.ListenerEditUsuario;
+import br.inatel.ec206.controller.ListenerExcUsuario;
 
-import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
+import javax.swing.JTextField;
+import javax.swing.JButton;
 
 public class DeletaUsuarioView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtNome;
+	private JLabel lblNewLabel;
+	private JTextField txtPesquisar;
+	private JButton btnPesquisar;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNome;
+	private JLabel lblDataNascimento;
+	private JLabel lblEmail;
+	private JLabel lblTipo;
+	private JButton btnDeletar;
+	private JButton btnSair;
+	
+	ListenerExcUsuario listener = ListenerExcUsuario.getInstance(this);
 
 	/**
 	 * Launch the application.
@@ -47,122 +53,124 @@ public class DeletaUsuarioView extends JFrame {
 	 * Create the frame.
 	 */
 	public DeletaUsuarioView() {
-		setTitle("Deletar Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 387);
+		setBounds(100, 100, 450, 366);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JButton btnPesquisar = new JButton("Pesquisar");
-		btnPesquisar.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				if(txtNome.getText().equals(""))
-				{
-					JOptionPane.showMessageDialog(null,"Digite os Dados!","Aviso",JOptionPane.WARNING_MESSAGE);
-				}
-				else
-				{
-					pesquisarUsuario();
-				}
-				
-			}
-		});
-		btnPesquisar.setBounds(462, 39, 115, 29);
-		contentPane.add(btnPesquisar);
-		
-		JButton btnSair = new JButton("Sair");
-		btnSair.setBounds(404, 175, 115, 65);
-		contentPane.add(btnSair);
-		
-		JButton btnDeletar = new JButton("Deletar");
-		btnDeletar.addActionListener(new ActionListener() 
-		{
-			public void actionPerformed(ActionEvent e) 
-			{
-				if(txtNome.getText().equals(""))
-				{
-					System.out.println("Digite os dados");
-				}
-				else
-				{
-					int dialogButton = JOptionPane.YES_NO_OPTION;
-					int dialogResult = JOptionPane.showConfirmDialog (null, "Deseja mesmo deletar Usuario?","Warning",dialogButton);
-					if(dialogResult == JOptionPane.YES_OPTION)
-					{
-						deletarUsuario();
-					}
-					
-				}
-				
-			}
-		});
-		btnDeletar.setBounds(244, 175, 114, 65);
-		contentPane.add(btnDeletar);
-		
-		txtNome = new JTextField();
-		txtNome.setColumns(10);
-		txtNome.setBounds(102, 40, 319, 26);
-		contentPane.add(txtNome);
-		
-		JLabel lblImagem = new JLabel("");
-		lblImagem.setBackground(Color.WHITE);
-		lblImagem.setBounds(15, 134, 156, 154);
-		contentPane.add(lblImagem);
-		
-		JLabel label_1 = new JLabel("Imagem");
-		label_1.setFont(new Font("Franklin Gothic Medium", Font.PLAIN, 18));
-		label_1.setBounds(51, 107, 86, 21);
-		contentPane.add(label_1);
-		
-		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(15, 43, 100, 20);
-		contentPane.add(lblNome);
-	}
-	
-	protected void pesquisarUsuario()
-	{
-			UsuarioDAO usu = new UsuarioDAO();
-			List<Usuario> listaUsuario = new ArrayList<>();
-			
-			int idUsu, tipousu;
-			String nomeusu, datanasc, email,foto;
-			
-			usu.setNome_usu(txtNome.getText());
-			
-			listaUsuario = usu.selecionaPorNome();
-			idUsu = listaUsuario.get(0).getID_usu();
-			nomeusu = listaUsuario.get(0).getNome_usu();
-			datanasc = listaUsuario.get(0).getData_nascimento_usu();
-			email = listaUsuario.get(0).getEmail_usu();
-			tipousu = listaUsuario.get(0).getTipo_usu();
-			foto = listaUsuario.get(0).getFoto_usu();
-			
-			usu.setID_usu(idUsu);
-			
-			//txtNome.setText(usu.getNome_usu());
-	}
-	
-	
-	protected void deletarUsuario()
-	{
-
-			UsuarioDAO usu = new UsuarioDAO();
-			List<Usuario> listaUsu = new ArrayList<>();
-			int idUsu;
-			usu.setNome_usu(txtNome.getText());
-
-			listaUsu = usu.selecionaPorNome();
-			idUsu= listaUsu.get(0).getID_usu();
-			System.out.println(idUsu);
-			usu.setID_usu(idUsu);
-			
-			usu.delete();
-			JOptionPane.showMessageDialog(null, "Usuario Deletado!");
+		contentPane.add(getLblNewLabel());
+		contentPane.add(getTxtPesquisar());
+		contentPane.add(getBtnPesquisar());
+		contentPane.add(getLblNewLabel_1());
+		contentPane.add(getLblNewLabel_2());
+		contentPane.add(getLblNewLabel_3());
+		contentPane.add(getLblNewLabel_4());
+		contentPane.add(getLblNome());
+		contentPane.add(getLblDataNascimento());
+		contentPane.add(getLblEmail());
+		contentPane.add(getLblTipo());
+		contentPane.add(getBtnDeletar());
+		contentPane.add(getBtnSair());
 	}
 
-
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("Nome:");
+			lblNewLabel.setBounds(15, 31, 69, 20);
+		}
+		return lblNewLabel;
+	}
+	public JTextField getTxtPesquisar() {
+		if (txtPesquisar == null) {
+			txtPesquisar = new JTextField();
+			txtPesquisar.setBounds(115, 28, 146, 26);
+			txtPesquisar.setColumns(10);
+		}
+		return txtPesquisar;
+	}
+	public JButton getBtnPesquisar() {
+		if (btnPesquisar == null) {
+			btnPesquisar = new JButton("Pesquisar");
+			btnPesquisar.setActionCommand("PESQUISAR");
+			btnPesquisar.setBounds(68, 78, 115, 29);
+			btnPesquisar.addActionListener(listener);
+		}
+		return btnPesquisar;
+	}
+	private JLabel getLblNewLabel_1() {
+		if (lblNewLabel_1 == null) {
+			lblNewLabel_1 = new JLabel("Nome:");
+			lblNewLabel_1.setBounds(15, 136, 69, 20);
+		}
+		return lblNewLabel_1;
+	}
+	private JLabel getLblNewLabel_2() {
+		if (lblNewLabel_2 == null) {
+			lblNewLabel_2 = new JLabel("Data de Nascimento:");
+			lblNewLabel_2.setBounds(15, 178, 162, 20);
+		}
+		return lblNewLabel_2;
+	}
+	private JLabel getLblNewLabel_3() {
+		if (lblNewLabel_3 == null) {
+			lblNewLabel_3 = new JLabel("E-mail:");
+			lblNewLabel_3.setBounds(15, 224, 69, 20);
+		}
+		return lblNewLabel_3;
+	}
+	private JLabel getLblNewLabel_4() {
+		if (lblNewLabel_4 == null) {
+			lblNewLabel_4 = new JLabel("Tipo:");
+			lblNewLabel_4.setBounds(15, 274, 69, 20);
+		}
+		return lblNewLabel_4;
+	}
+	public JLabel getLblNome() {
+		if (lblNome == null) {
+			lblNome = new JLabel("");
+			lblNome.setBounds(115, 136, 69, 20);
+		}
+		return lblNome;
+	}
+	public JLabel getLblDataNascimento() {
+		if (lblDataNascimento == null) {
+			lblDataNascimento = new JLabel("");
+			lblDataNascimento.setBounds(192, 178, 69, 20);
+		}
+		return lblDataNascimento;
+	}
+	public JLabel getLblEmail() {
+		if (lblEmail == null) {
+			lblEmail = new JLabel("");
+			lblEmail.setBounds(114, 224, 69, 20);
+		}
+		return lblEmail;
+	}
+	public JLabel getLblTipo() {
+		if (lblTipo == null) {
+			lblTipo = new JLabel("");
+			lblTipo.setBounds(114, 274, 69, 20);
+		}
+		return lblTipo;
+	}
+	private JButton getBtnDeletar() {
+		if (btnDeletar == null) {
+			btnDeletar = new JButton("Deletar");
+			btnDeletar.setActionCommand("DELETAR");
+			btnDeletar.setBounds(250, 132, 115, 29);
+			btnDeletar.addActionListener(listener);
+			
+		}
+		return btnDeletar;
+	}
+	private JButton getBtnSair() {
+		if (btnSair == null) {
+			btnSair = new JButton("Sair");
+			btnSair.setActionCommand("SAIR");
+			btnSair.setBounds(250, 215, 115, 29);
+			btnSair.addActionListener(listener);
+		}
+		return btnSair;
+	}
 }

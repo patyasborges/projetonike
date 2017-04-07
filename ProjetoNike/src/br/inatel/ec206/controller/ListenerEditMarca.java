@@ -1,5 +1,5 @@
 package br.inatel.ec206.controller;
 
-public class ListnerEditUsuario {
+public class ListenerEditMarca {
 
 }

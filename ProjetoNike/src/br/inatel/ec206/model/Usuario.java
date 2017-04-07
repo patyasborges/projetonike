@@ -7,7 +7,6 @@ public class Usuario
 	String Data_nascimento_usu;
 	String email_usu;
 	int Tipo_usu;
-	String foto_usu;
 	
 	public int getID_usu() {
 		return ID_usu;
@@ -39,12 +38,7 @@ public class Usuario
 	public void setTipo_usu(int tipo_usu) {
 		Tipo_usu = tipo_usu;
 	}
-	public String getFoto_usu() {
-		return foto_usu;
-	}
-	public void setFoto_usu(String foto_usu) {
-		this.foto_usu = foto_usu;
-	}
+
 	
 	
 	

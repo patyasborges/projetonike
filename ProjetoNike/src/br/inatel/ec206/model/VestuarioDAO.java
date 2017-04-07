@@ -18,7 +18,6 @@ public class VestuarioDAO
 	String Genero_vest;
 	int ID_esporte;
 	double Preco_vest;
-	String Imagem_vest;
 	String Tamanho_vest;
 	String Cor_vest;
 	int ID_marca;
@@ -35,17 +34,17 @@ public class VestuarioDAO
 				 try 
 				 {
 					 // Preparo a insercao
-					 conecta._pst = conecta._con.prepareStatement("INSERT INTO Vestuario(ID_vest,Descricao_vest,Genero_vest,ID_esporte,Preco_vest,Imagem_vest,Tamanho_vest,Cor_vest,ID_marca) VALUES(?,?,?,?,?,?,?,?,?)");
+					 conecta._pst = conecta._con.prepareStatement("INSERT INTO vestuario(ID_vest, Descricao_vest, Genero_vest, ID_Esporte, Preco_vest, Tamanho_vest, Cor_vest, ID_marca) VALUES(?,?,?,?,?,?,?,?)");
 					 // Cada numero indica a posicao que o valor sera inserido nas ? acima
 					 conecta._pst.setInt(1, ID_vest);
 					 conecta._pst.setString(2, Descricao_vest);
 					 conecta._pst.setString(3, Genero_vest);
 					 conecta._pst.setInt(4, ID_esporte);
 					 conecta._pst.setDouble(5, Preco_vest);
-					 conecta._pst.setString(6, Imagem_vest);
-					 conecta._pst.setString(7, Tamanho_vest);
-					 conecta._pst.setString(8, Cor_vest);
-					 conecta._pst.setInt(9, ID_marca);
+					 conecta._pst.setString(6, Tamanho_vest);
+					 conecta._pst.setString(7, Cor_vest);
+					 conecta._pst.setInt(8, ID_marca);
+			
 
 					 // Executo a pesquisa
 					 conecta._pst.executeUpdate();
@@ -103,10 +102,9 @@ public class VestuarioDAO
 						 vest.setGenero_vest(conecta._rs.getString(3));		
 						 vest.setID_esporte(conecta._rs.getInt(4));
 						 vest.setPreco_vest(conecta._rs.getInt(5));
-						 vest.setImagem_vest(conecta._rs.getString(6));
-						 vest.setTamanho_vest(conecta._rs.getString(7));
-						 vest.setCor_vest(conecta._rs.getString(8));
-						 vest.setID_marca(conecta._rs.getInt(9));
+						 vest.setTamanho_vest(conecta._rs.getString(6));
+						 vest.setCor_vest(conecta._rs.getString(7));
+						 vest.setID_marca(conecta._rs.getInt(8));
 						 
 						 // Adiciono na lista
 						 listaVest.add(vest);
@@ -169,10 +167,9 @@ public class VestuarioDAO
 						 vest.setGenero_vest(conecta._rs.getString(3));
 						 vest.setID_esporte(conecta._rs.getInt(4));
 						 vest.setPreco_vest(conecta._rs.getDouble(5));
-						 vest.setImagem_vest(conecta._rs.getString(6));
-						 vest.setTamanho_vest(conecta._rs.getString(7));
-						 vest.setCor_vest(conecta._rs.getString(8));
-						 vest.setID_marca(conecta._rs.getInt(9));
+						 vest.setTamanho_vest(conecta._rs.getString(6));
+						 vest.setCor_vest(conecta._rs.getString(7));
+						 vest.setID_marca(conecta._rs.getInt(8));
 						 
 						 listaVest.add(vest);
 					 }
@@ -216,17 +213,16 @@ public class VestuarioDAO
 				 try 
 				 {
 					 // Preparo a atualizacao
-					 conecta._pst = conecta._con.prepareStatement("UPDATE Vestuario SET Descricao_vest = ?,Genero_vest = ?,ID_esporte =?, Preco_vest=?, Imagem_vest=?, Tamanho_vest=?, Cor_vest=?, ID_marca=? WHERE ID_vest = ?");
+					 conecta._pst = conecta._con.prepareStatement("UPDATE Vestuario SET Descricao_vest = ?,Genero_vest = ?,ID_esporte =?, Preco_vest=?, Tamanho_vest=?, Cor_vest=?, ID_marca=? WHERE ID_vest = ?");
 					
 					 conecta._pst.setString(1, Descricao_vest);
 					 conecta._pst.setString(2, Genero_vest);
 					 conecta._pst.setInt(3, ID_esporte);
 					 conecta._pst.setDouble(4, Preco_vest);
-					 conecta._pst.setString(5, Imagem_vest);
-					 conecta._pst.setString(6, Tamanho_vest);
-					 conecta._pst.setString(7, Cor_vest);
-					 conecta._pst.setInt(8, ID_marca);
-					 conecta._pst.setInt(9, ID_vest);
+					 conecta._pst.setString(5, Tamanho_vest);
+					 conecta._pst.setString(6, Cor_vest);
+					 conecta._pst.setInt(7, ID_marca);
+					 conecta._pst.setInt(8, ID_vest);
 					
 					 
 					 // Executo a atualizacao
@@ -348,14 +344,6 @@ public class VestuarioDAO
 
 				public void setPreco_vest(double preco_vest) {
 					Preco_vest = preco_vest;
-				}
-
-				public String getImagem_vest() {
-					return Imagem_vest;
-				}
-
-				public void setImagem_vest(String imagem_vest) {
-					Imagem_vest = imagem_vest;
 				}
 
 				public String getTamanho_vest() {

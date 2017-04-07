@@ -18,7 +18,6 @@ public class UsuarioDAO
 	String Data_nascimento_usu;
 	String email_usu;
 	int Tipo_usu;
-	String foto_usu;
 
 		 //---------------------------------------------------------------------
 	
@@ -31,14 +30,14 @@ public class UsuarioDAO
 			 try 
 			 {
 				 // Preparo a insercao
-				 conecta._pst = conecta._con.prepareStatement("INSERT INTO usuario(ID_usu,Nome_usu,Data_nascimento_usu,email_usu, Tipo_usu, foto_usu) VALUES(?,?,?,?,?,?)");
+				 conecta._pst = conecta._con.prepareStatement("INSERT INTO usuario(ID_usu,Nome_usu,Data_nascimento_usu,email_usu,Tipo_usu) VALUES(?,?,?,?,?)");
 				 // Cada numero indica a posicao que o valor sera inserido nas ? acima
 				 conecta._pst.setInt(1, ID_usu);
 				 conecta._pst.setString(2, Nome_usu);
 				 conecta._pst.setString(3, Data_nascimento_usu);
 				 conecta._pst.setString(4, email_usu);
 				 conecta._pst.setInt(5, Tipo_usu);
-				 conecta._pst.setString(6, foto_usu);
+
 
 
 				 // Executo a pesquisa
@@ -99,7 +98,6 @@ public class UsuarioDAO
 					 usu.setData_nascimento_usu(conecta._rs.getString(3));		
 					 usu.setEmail_usu(conecta._rs.getString(4));
 					 usu.setTipo_usu(conecta._rs.getInt(5));
-					 usu.setFoto_usu(conecta._rs.getString(6));
 					 
 					 // Adiciono na lista
 					 listaUsuario.add(usu);
@@ -162,7 +160,7 @@ public class UsuarioDAO
 					 usu.setData_nascimento_usu(conecta._rs.getString(3));
 					 usu.setEmail_usu(conecta._rs.getString(4));
 					 usu.setTipo_usu(conecta._rs.getInt(5));
-					 usu.setFoto_usu(conecta._rs.getString(6));
+
 
 					 listaUsuario.add(usu);
 				 }
@@ -206,19 +204,18 @@ public class UsuarioDAO
 			 try 
 			 {
 				 // Preparo a atualizacao
-				 conecta._pst = conecta._con.prepareStatement("UPDATE Usuario SET Nome_usu = ?,Data_nascimento_usu = ?,email_usu =?, Tipo_usu=?, foto_usu=? WHERE ID_usu = ?");
+				 conecta._pst = conecta._con.prepareStatement("UPDATE Usuario SET Nome_usu = ?,Data_nascimento_usu = ?,email_usu = ?,Tipo_usu= ? WHERE ID_usu = ?");
 				
 				 conecta._pst.setString(1, Nome_usu);
 				 conecta._pst.setString(2, Data_nascimento_usu);
 				 conecta._pst.setString(3, email_usu);
 				 conecta._pst.setInt(4, Tipo_usu);
-				 conecta._pst.setString(5, foto_usu);
-				 conecta._pst.setInt(6, ID_usu);
-				 System.out.println(ID_usu); 
+				 conecta._pst.setInt(5, ID_usu);
+
 				 
 				 // Executo a atualizacao
 				 conecta._pst.executeUpdate();
-				 //System.out.println("Sucesso! ;)");
+				 System.out.println("Sucesso! ;)");
 			 } 
 			 catch (SQLException ex)
 			 {
@@ -345,14 +342,5 @@ public class UsuarioDAO
 				Tipo_usu = tipo_usu;
 			}
 
-
-			public String getFoto_usu() {
-				return foto_usu;
-			}
-
-
-			public void setFoto_usu(String foto_usu) {
-				this.foto_usu = foto_usu;
-			}
 
 }

@@ -7,7 +7,6 @@ public class ArtigosDesportivos
 	String Genero_art;
 	int ID_esporte;
 	Double Preco_art;
-	String Imagem_art;
 	String Tamanho_art;
 	String Cor_art;
 	int ID_marca;
@@ -42,12 +41,7 @@ public class ArtigosDesportivos
 	public void setPreco_art(Double preco_art) {
 		Preco_art = preco_art;
 	}
-	public String getImagem_art() {
-		return Imagem_art;
-	}
-	public void setImagem_art(String imagem_art) {
-		Imagem_art = imagem_art;
-	}
+
 	public String getTamanho_art() {
 		return Tamanho_art;
 	}

@@ -2,12 +2,13 @@ package br.inatel.ec206.model;
 
 public class Calcados {
 	
+	private int ID_calcados;
 	
+
 	private String Descricao_calc;
 	private String Genero_calc;
 	private String Tipo_calc; // (para qualquer esporte)
 	private double Preco_calc;
-	// Imagem_calc
 	private int Tamanho_calc;
 	private String Cor_calc;
 
@@ -57,6 +58,14 @@ public class Calcados {
 
 	public void setCor_calc(String cor_calc) {
 		Cor_calc = cor_calc;
+	}
+	
+	public int getID_calcados() {
+		return ID_calcados;
+	}
+
+	public void setID_calcados(int iD_calcados) {
+		ID_calcados = iD_calcados;
 	}
 
 }

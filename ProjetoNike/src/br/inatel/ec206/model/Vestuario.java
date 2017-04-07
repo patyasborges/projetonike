@@ -7,7 +7,6 @@ public class Vestuario {
 	String Genero_vest;
 	int ID_esporte;
 	double Preco_vest;
-	String Imagem_vest;
 	String Tamanho_vest;
 	String Cor_vest;
 	int ID_marca;
@@ -42,12 +41,6 @@ public class Vestuario {
 	}
 	public void setPreco_vest(double preco_vest) {
 		Preco_vest = preco_vest;
-	}
-	public String getImagem_vest() {
-		return Imagem_vest;
-	}
-	public void setImagem_vest(String imagem_vest) {
-		Imagem_vest = imagem_vest;
 	}
 	public String getTamanho_vest() {
 		return Tamanho_vest;
