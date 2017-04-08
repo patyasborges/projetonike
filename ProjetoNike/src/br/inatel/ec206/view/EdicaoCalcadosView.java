@@ -10,11 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import br.inatel.ec206.controller.ListnerEditCalcado;
+import br.inatel.ec206.controller.ListenerEditCalcado;
 
 public class EdicaoCalcadosView extends JFrame {
 	
-	ListnerEditCalcado listener = ListnerEditCalcado.getInstance(this);
+	ListenerEditCalcado listener = ListenerEditCalcado.getInstance(this);
 
 	private static final long serialVersionUID = 1L;
 

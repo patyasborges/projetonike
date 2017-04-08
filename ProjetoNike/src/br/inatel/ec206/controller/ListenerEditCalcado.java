@@ -9,9 +9,9 @@ import br.inatel.ec206.model.CalcadosDAO;
 import br.inatel.ec206.model.Calcados;
 import br.inatel.ec206.view.EdicaoCalcadosView;
 
-public class ListnerEditCalcado implements ActionListener {
+public class ListenerEditCalcado implements ActionListener {
 
-	private static ListnerEditCalcado listener;
+	private static ListenerEditCalcado listener;
 	private static EdicaoCalcadosView edicaoCalcado;
 	
 	private int ID_calcado;
@@ -24,9 +24,9 @@ public class ListnerEditCalcado implements ActionListener {
 	
 	
 
-	public static ListnerEditCalcado getInstance(EdicaoCalcadosView editCalcado) {
+	public static ListenerEditCalcado getInstance(EdicaoCalcadosView editCalcado) {
 		if (listener == null) {
-			listener = new ListnerEditCalcado();
+			listener = new ListenerEditCalcado();
 		}
 		edicaoCalcado = editCalcado;
 		return listener;

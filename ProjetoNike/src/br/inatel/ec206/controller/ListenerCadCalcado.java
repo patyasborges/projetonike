@@ -8,14 +8,14 @@ import javax.swing.JOptionPane;
 import br.inatel.ec206.model.CalcadosDAO;
 import br.inatel.ec206.view.CadastroCalcadosView;
 
-public class ListnerCadCalcado implements ActionListener {
+public class ListenerCadCalcado implements ActionListener {
 
-	private static ListnerCadCalcado listener;
+	private static ListenerCadCalcado listener;
 	private static CadastroCalcadosView cadastroCalcado;
 
-	public static ListnerCadCalcado getInstance(CadastroCalcadosView cadCalcados) {
+	public static ListenerCadCalcado getInstance(CadastroCalcadosView cadCalcados) {
 		if (listener == null) {
-			listener = new ListnerCadCalcado();
+			listener = new ListenerCadCalcado();
 		}
 		cadastroCalcado = cadCalcados;
 		return listener;

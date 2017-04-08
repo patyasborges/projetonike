@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.inatel.ec206.controller.ListnerCadCalcado;
+import br.inatel.ec206.controller.ListenerCadCalcado;
 
 import javax.swing.JLabel;
 
@@ -19,7 +19,7 @@ public class CadastroCalcadosView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	ListnerCadCalcado listener = ListnerCadCalcado.getInstance(this);
+	ListenerCadCalcado listener = ListenerCadCalcado.getInstance(this);
 
 	private JTextField descricaoCal;
 	private JTextField generoCal;
