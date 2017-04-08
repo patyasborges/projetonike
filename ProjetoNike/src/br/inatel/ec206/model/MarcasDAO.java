@@ -187,7 +187,7 @@ public class MarcasDAO
 		 try 
 		 {
 			 // Preparo a atualizacao
-			 conecta._pst = conecta._con.prepareStatement("UPDATE Marcas SET Nome_marca = ?, WHERE ID_marca = ?");
+			 conecta._pst = conecta._con.prepareStatement("UPDATE Marcas SET Nome_marca = ? WHERE ID_marca = ?");
 			
 			 conecta._pst.setString(1, Nome_marca);
 			 conecta._pst.setInt(2, ID_marca);

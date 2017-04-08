@@ -3,8 +3,6 @@ package br.inatel.ec206.model;
 public class Calcados {
 	
 	private int ID_calcados;
-	
-
 	private String Descricao_calc;
 	private String Genero_calc;
 	private String Tipo_calc; // (para qualquer esporte)

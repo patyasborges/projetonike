@@ -37,7 +37,6 @@ public class ListenerCadMarca implements ActionListener
 			}
 			else 
 			{
-				ListenerCadMarca list = new ListenerCadMarca();
 				
 				MarcasDAO marca = new MarcasDAO();
 

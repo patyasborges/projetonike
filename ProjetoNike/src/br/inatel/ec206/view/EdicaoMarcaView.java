@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import br.inatel.ec206.controller.ListenerCadMarca;
+import br.inatel.ec206.controller.ListenerEditMarca;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -20,6 +24,8 @@ public class EdicaoMarcaView extends JFrame {
 	private JTextField txtMarca;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
+	
+	ListenerEditMarca listener = ListenerEditMarca.getInstance(this);
 
 	/**
 	 * Launch the application.
@@ -56,7 +62,7 @@ public class EdicaoMarcaView extends JFrame {
 		contentPane.add(getLblNewLabel_1());
 	}
 
-	private JTextField getTxtPesquisar() {
+	public JTextField getTxtPesquisar() {
 		if (txtPesquisar == null) {
 			txtPesquisar = new JTextField();
 			txtPesquisar.setBounds(120, 26, 146, 26);
@@ -67,25 +73,31 @@ public class EdicaoMarcaView extends JFrame {
 	private JButton getBtnPesquisar() {
 		if (btnPesquisar == null) {
 			btnPesquisar = new JButton("Pesquisar");
+			btnPesquisar.setActionCommand("PESQUISAR");
 			btnPesquisar.setBounds(281, 25, 115, 29);
+			btnPesquisar.addActionListener(listener);
 		}
 		return btnPesquisar;
 	}
 	private JButton getBtnEditar() {
 		if (btnEditar == null) {
 			btnEditar = new JButton("Editar");
+			btnEditar.setActionCommand("EDITAR");
 			btnEditar.setBounds(281, 93, 115, 29);
+			btnEditar.addActionListener(listener);
 		}
 		return btnEditar;
 	}
 	private JButton getBtnSair() {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
+			btnSair.setActionCommand("SAIR");
 			btnSair.setBounds(281, 160, 115, 29);
+			btnSair.addActionListener(listener);
 		}
 		return btnSair;
 	}
-	private JTextField getTxtMarca() {
+	public JTextField getTxtMarca() {
 		if (txtMarca == null) {
 			txtMarca = new JTextField();
 			txtMarca.setBounds(108, 94, 146, 26);
