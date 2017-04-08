@@ -57,7 +57,7 @@ public class Calcados {
 	public void setCor_calc(String cor_calc) {
 		Cor_calc = cor_calc;
 	}
-	
+
 	public int getID_calcados() {
 		return ID_calcados;
 	}
@@ -65,5 +65,7 @@ public class Calcados {
 	public void setID_calcados(int iD_calcados) {
 		ID_calcados = iD_calcados;
 	}
+
+	
 
 }
