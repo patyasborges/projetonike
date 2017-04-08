@@ -186,7 +186,7 @@ public class EsporteDAO
 				 try 
 				 {
 					 // Preparo a atualizacao
-					 conecta._pst = conecta._con.prepareStatement("UPDATE Esportes SET Nome_Esporte = ?, WHERE ID_Esporte = ?");
+					 conecta._pst = conecta._con.prepareStatement("UPDATE Esportes SET Nome_Esporte = ? WHERE ID_Esporte = ?");
 					
 					 conecta._pst.setString(1, Nome_Esporte);
 					 conecta._pst.setInt(2, ID_Esporte);
