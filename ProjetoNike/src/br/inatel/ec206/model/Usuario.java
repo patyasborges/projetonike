@@ -7,7 +7,14 @@ public class Usuario
 	String Data_nascimento_usu;
 	String email_usu;
 	int Tipo_usu;
+	String Senha_usu;
 	
+	public String getSenha_usu() {
+		return Senha_usu;
+	}
+	public void setSenha_usu(String senha_usu) {
+		Senha_usu = senha_usu;
+	}
 	public int getID_usu() {
 		return ID_usu;
 	}

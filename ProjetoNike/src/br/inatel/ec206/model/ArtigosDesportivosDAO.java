@@ -30,7 +30,7 @@ public class ArtigosDesportivosDAO
 			 try 
 			 {
 				 // Preparo a insercao
-				 conecta._pst = conecta._con.prepareStatement("INSERT INTO Artigos_desportivos(ID_Art,Descricao_art,Genero_Art_usu,ID_esporte,Preco_art,Tamanho_art,Cor_art,ID_marca) VALUES(?,?,?,?,?,?,?,?)");
+				 conecta._pst = conecta._con.prepareStatement("INSERT INTO Artigos_desportivos(ID_Art,Descricao_art,Genero_art,ID_esporte,Preco_art,Tamanho_art,Cor_art,ID_marca) VALUES(?,?,?,?,?,?,?,?)");
 				 // Cada numero indica a posicao que o valor sera inserido nas ? acima
 				 conecta._pst.setInt(1, ID_art);
 				 conecta._pst.setString(2, Descricao_art);
@@ -40,8 +40,6 @@ public class ArtigosDesportivosDAO
 				 conecta._pst.setString(6, Tamanho_art);
 				 conecta._pst.setString(7, Cor_art);
 				 conecta._pst.setInt(8, ID_marca);
-
-
 
 				 // Executo a pesquisa
 				 conecta._pst.executeUpdate();

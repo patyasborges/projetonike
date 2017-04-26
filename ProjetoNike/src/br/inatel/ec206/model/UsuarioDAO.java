@@ -18,6 +18,7 @@ public class UsuarioDAO
 	String Data_nascimento_usu;
 	String email_usu;
 	int Tipo_usu;
+	String Senha_usu;
 
 		 //---------------------------------------------------------------------
 	
@@ -30,15 +31,14 @@ public class UsuarioDAO
 			 try 
 			 {
 				 // Preparo a insercao
-				 conecta._pst = conecta._con.prepareStatement("INSERT INTO usuario(ID_usu,Nome_usu,Data_nascimento_usu,email_usu,Tipo_usu) VALUES(?,?,?,?,?)");
+				 conecta._pst = conecta._con.prepareStatement("INSERT INTO usuario(ID_usu,Nome_usu,Data_nascimento_usu,email_usu,Tipo_usu,Senha_usu) VALUES(?,?,?,?,?,?)");
 				 // Cada numero indica a posicao que o valor sera inserido nas ? acima
 				 conecta._pst.setInt(1, ID_usu);
 				 conecta._pst.setString(2, Nome_usu);
 				 conecta._pst.setString(3, Data_nascimento_usu);
 				 conecta._pst.setString(4, email_usu);
 				 conecta._pst.setInt(5, Tipo_usu);
-
-
+				 conecta._pst.setString(6, Senha_usu);
 
 				 // Executo a pesquisa
 				 conecta._pst.executeUpdate();
@@ -72,67 +72,6 @@ public class UsuarioDAO
 				 }
 			 }
 		}
-
-
-		// (2.1) SELECT ALL: Seleciona todos os registros desta tabela.
-		 public List<Usuario> selecionaTodos() //MUDAR
-		 {
-			 // Lista que recebera todos os registros desta tabela
-			 List<Usuario> listaUsuario = new ArrayList<>();
-			 try 
-			 {
-				 // Conecto com o Banco
-				 conecta.conectaBanco();
-				 // O metodo createStatement() cria um objeto Statement que permite enviar comandos
-				 //SQL para o banco.
-				 conecta._st = conecta._con.createStatement();
-				 // O ResultSet gera uma tabela de dados retornados por uma pesquisa SQL.
-				 conecta._rs = conecta._st.executeQuery("SELECT * FROM usuario");
-				 // O metodo next() caminha entre as linhas da tabela de resultados retornada.
-				 while (conecta._rs.next()) 
-				 {
-					 // A cada nova interacao, cria um novo objeto Livro
-					 Usuario usu = new Usuario();
-					 usu.setID_usu(conecta._rs.getInt(1));				 
-					 usu.setNome_usu(conecta._rs.getString(2));				 
-					 usu.setData_nascimento_usu(conecta._rs.getString(3));		
-					 usu.setEmail_usu(conecta._rs.getString(4));
-					 usu.setTipo_usu(conecta._rs.getInt(5));
-					 
-					 // Adiciono na lista
-					 listaUsuario.add(usu);
-				 }
-				 System.out.println("Sucesso! ;)");
-			 } 
-			 catch (SQLException ex) 
-			 {
-				 System.out.println("Erro: Conexão Banco! :(");
-			 }
-			 finally
-			 {
-				 // Independente se a conexao deu certo ou errado, fecha as conexoes pendentes
-				 try
-				 {
-					 if (conecta._rs != null)
-					 {
-						 conecta._rs.close();
-					 }
-					 if (conecta._st != null)
-					 {
-						 conecta._st.close();
-					 }
-					 if (conecta._con != null) 
-					 {
-						 conecta._con.close();
-					 }
-				 } 
-				 catch (SQLException ex) 
-				 {
-					 System.out.println("Erro: Conexão não pode ser fechada! :(");
-				 }
-			 }
-			 return listaUsuario;
-		 }
 		 
 		// (2.2) SELECT POR NOME OU POR PARTE DE UM NOME
 		 public List<Usuario> selecionaPorNome()
@@ -160,6 +99,7 @@ public class UsuarioDAO
 					 usu.setData_nascimento_usu(conecta._rs.getString(3));
 					 usu.setEmail_usu(conecta._rs.getString(4));
 					 usu.setTipo_usu(conecta._rs.getInt(5));
+					 usu.setSenha_usu(conecta._rs.getString(6));
 
 
 					 listaUsuario.add(usu);
@@ -204,14 +144,14 @@ public class UsuarioDAO
 			 try 
 			 {
 				 // Preparo a atualizacao
-				 conecta._pst = conecta._con.prepareStatement("UPDATE Usuario SET Nome_usu = ?,Data_nascimento_usu = ?,email_usu = ?,Tipo_usu= ? WHERE ID_usu = ?");
+				 conecta._pst = conecta._con.prepareStatement("UPDATE Usuario SET Nome_usu = ?,Data_nascimento_usu = ?,email_usu = ?,Tipo_usu= ?, Senha_usu=? WHERE ID_usu = ?");
 				
 				 conecta._pst.setString(1, Nome_usu);
 				 conecta._pst.setString(2, Data_nascimento_usu);
 				 conecta._pst.setString(3, email_usu);
 				 conecta._pst.setInt(4, Tipo_usu);
 				 conecta._pst.setInt(5, ID_usu);
-
+				 conecta._pst.setString(6, Senha_usu);
 				 
 				 // Executo a atualizacao
 				 conecta._pst.executeUpdate();
@@ -342,5 +282,14 @@ public class UsuarioDAO
 				Tipo_usu = tipo_usu;
 			}
 
+			public String getSenha_usu() {
+				return Senha_usu;
+			}
 
+			public void setSenha_usu(String senha_usu) {
+				Senha_usu = senha_usu;
+			}
+
+
+			
 }

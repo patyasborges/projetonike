@@ -30,6 +30,8 @@ public class CadastroUsuarioView extends JFrame {
 	public JRadioButton rdbtnAdministrador;
 	
 	ListenerCadUsuario listener = ListenerCadUsuario.getInstance(this);
+	private JTextField txtSenha;
+	private JLabel lblNewLabel_4;
 
 	/**
 	 * Launch the application.
@@ -52,7 +54,7 @@ public class CadastroUsuarioView extends JFrame {
 	 */
 	public CadastroUsuarioView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 461, 358);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -68,6 +70,8 @@ public class CadastroUsuarioView extends JFrame {
 		contentPane.add(getBtnSair());
 		contentPane.add(getRdbtnCliente());
 		contentPane.add(getRdbtnAdministrador());
+		contentPane.add(getTxtSenha());
+		contentPane.add(getLblNewLabel_4());
 	}
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
@@ -157,4 +161,19 @@ public class CadastroUsuarioView extends JFrame {
 	}
 	
 	
+	public JTextField getTxtSenha() {
+		if (txtSenha == null) {
+			txtSenha = new JTextField();
+			txtSenha.setBounds(101, 243, 146, 26);
+			txtSenha.setColumns(10);
+		}
+		return txtSenha;
+	}
+	private JLabel getLblNewLabel_4() {
+		if (lblNewLabel_4 == null) {
+			lblNewLabel_4 = new JLabel("Senha:");
+			lblNewLabel_4.setBounds(15, 245, 69, 20);
+		}
+		return lblNewLabel_4;
+	}
 }
