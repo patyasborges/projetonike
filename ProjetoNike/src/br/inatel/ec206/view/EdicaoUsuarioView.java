@@ -39,6 +39,8 @@ public class EdicaoUsuarioView extends JFrame {
 
 	
 	ListenerEditUsuario listener = ListenerEditUsuario.getInstance(this);
+	private JTextField txtSenha;
+	private JLabel lblNewLabel_5;
 	
 	/**
 	 * Launch the application.
@@ -60,8 +62,9 @@ public class EdicaoUsuarioView extends JFrame {
 	 * Create the frame.
 	 */
 	public EdicaoUsuarioView() {
+		setTitle("Editar Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 346);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -80,6 +83,8 @@ public class EdicaoUsuarioView extends JFrame {
 		contentPane.add(getBtnPesquisar());
 		contentPane.add(getBtnEditar());
 		contentPane.add(getBtnSair());
+		contentPane.add(getTxtSenha());
+		contentPane.add(getLblNewLabel_5());
 	}
 
 	private JLabel getLblNewLabel() {
@@ -189,5 +194,20 @@ public class EdicaoUsuarioView extends JFrame {
 			btnSair.addActionListener(listener);
 		}
 		return btnSair;
+	}
+	public JTextField getTxtSenha() {
+		if (txtSenha == null) {
+			txtSenha = new JTextField();
+			txtSenha.setBounds(99, 248, 146, 26);
+			txtSenha.setColumns(10);
+		}
+		return txtSenha;
+	}
+	private JLabel getLblNewLabel_5() {
+		if (lblNewLabel_5 == null) {
+			lblNewLabel_5 = new JLabel("Senha:");
+			lblNewLabel_5.setBounds(15, 251, 69, 20);
+		}
+		return lblNewLabel_5;
 	}
 }

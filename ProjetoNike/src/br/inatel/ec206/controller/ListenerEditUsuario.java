@@ -33,7 +33,7 @@ public class ListenerEditUsuario implements ActionListener
 			List<Usuario> listaUsuario = new ArrayList<>();
 			
 			int idUsu, tipousu;
-			String nomeusu, datanasc, email;
+			String nomeusu, datanasc, email, senha;
 			
 			usu.setNome_usu(edicaoUsuario.getTxtPesquisar().getText());
 			
@@ -43,6 +43,7 @@ public class ListenerEditUsuario implements ActionListener
 			datanasc = listaUsuario.get(0).getData_nascimento_usu();
 			email = listaUsuario.get(0).getEmail_usu();
 			tipousu = listaUsuario.get(0).getTipo_usu();
+			senha = listaUsuario.get(0).getSenha_usu();
 			
 			usu.setID_usu(idUsu);
 			
@@ -60,6 +61,7 @@ public class ListenerEditUsuario implements ActionListener
 					edicaoUsuario.getRdbtnCliente().setSelected(true);
 				}
 			}
+			edicaoUsuario.getTxtSenha().setText(senha);
 		}
 		
 		if (event.getActionCommand() == "EDITAR") 
@@ -78,6 +80,7 @@ public class ListenerEditUsuario implements ActionListener
 			usu.setNome_usu(edicaoUsuario.getTxtNome().getText());
 			usu.setData_nascimento_usu(edicaoUsuario.getTxtDataNascimento().getText());
 			usu.setEmail_usu(edicaoUsuario.getTxtEmail().getText());
+			usu.setSenha_usu(edicaoUsuario.getTxtSenha().getText());
 			
 			if(edicaoUsuario.getRdbtnAdministrador().isSelected())
 			{

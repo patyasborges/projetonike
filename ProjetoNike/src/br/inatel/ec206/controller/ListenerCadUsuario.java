@@ -52,12 +52,14 @@ public class ListenerCadUsuario implements ActionListener {
 				usu.setData_nascimento_usu(cadastroUsuario.getTxtDataNascimento().getText());
 				usu.setEmail_usu(cadastroUsuario.getTxtEmail().getText());
 				usu.setTipo_usu(tipo);
+				usu.setSenha_usu(cadastroUsuario.getTxtSenha().getText());
 
 				usu.armazenaNovosDados();
 
 				cadastroUsuario.getTxtNome().setText("");
 				cadastroUsuario.getTxtDataNascimento().setText("");
 				cadastroUsuario.getTxtEmail().setText("");
+				cadastroUsuario.getTxtSenha().setText("");
 				cadastroUsuario.getRdbtnAdministrador().setSelected(false);
 				cadastroUsuario.getRdbtnCliente().setSelected(false);
 			}

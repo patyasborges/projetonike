@@ -78,69 +78,7 @@ public class VestuarioDAO
 				 }
 			}
 
-			// (2.1) SELECT ALL: Seleciona todos os registros desta tabela.
-			 public List<Vestuario> selecionaTodos() //MUDAR
-			 {
-				 // Lista que recebera todos os registros desta tabela
-				 List<Vestuario> listaVest = new ArrayList<>();
-				 try 
-				 {
-					 // Conecto com o Banco
-					 conecta.conectaBanco();
-					 // O metodo createStatement() cria um objeto Statement que permite enviar comandos
-					 //SQL para o banco.
-					 conecta._st = conecta._con.createStatement();
-					 // O ResultSet gera uma tabela de dados retornados por uma pesquisa SQL.
-					 conecta._rs = conecta._st.executeQuery("SELECT * FROM vestuario");
-					 // O metodo next() caminha entre as linhas da tabela de resultados retornada.
-					 while (conecta._rs.next()) 
-					 {
-						 // A cada nova interacao, cria um novo objeto Livro
-						 Vestuario vest = new Vestuario();
-						 vest.setID_vest(conecta._rs.getInt(1));				 
-						 vest.setDescricao_vest(conecta._rs.getString(2));				 
-						 vest.setGenero_vest(conecta._rs.getString(3));		
-						 vest.setID_esporte(conecta._rs.getInt(4));
-						 vest.setPreco_vest(conecta._rs.getInt(5));
-						 vest.setTamanho_vest(conecta._rs.getString(6));
-						 vest.setCor_vest(conecta._rs.getString(7));
-						 vest.setID_marca(conecta._rs.getInt(8));
 						 
-						 // Adiciono na lista
-						 listaVest.add(vest);
-					 }
-					 System.out.println("Sucesso! ;)");
-				 } 
-				 catch (SQLException ex) 
-				 {
-					 System.out.println("Erro: Conexão Banco! :(");
-				 }
-				 finally
-				 {
-					 // Independente se a conexao deu certo ou errado, fecha as conexoes pendentes
-					 try
-					 {
-						 if (conecta._rs != null)
-						 {
-							 conecta._rs.close();
-						 }
-						 if (conecta._st != null)
-						 {
-							 conecta._st.close();
-						 }
-						 if (conecta._con != null) 
-						 {
-							 conecta._con.close();
-						 }
-					 } 
-					 catch (SQLException ex) 
-					 {
-						 System.out.println("Erro: Conexão não pode ser fechada! :(");
-					 }
-				 }
-				 return listaVest;
-			 }
-			 
 			// (2.2) SELECT POR NOME OU POR PARTE DE UM NOME
 			 public List<Vestuario> selecionaPorDescricao()
 			 {

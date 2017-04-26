@@ -144,18 +144,18 @@ public class UsuarioDAO
 			 try 
 			 {
 				 // Preparo a atualizacao
-				 conecta._pst = conecta._con.prepareStatement("UPDATE Usuario SET Nome_usu = ?,Data_nascimento_usu = ?,email_usu = ?,Tipo_usu= ?, Senha_usu=? WHERE ID_usu = ?");
+				 conecta._pst = conecta._con.prepareStatement("UPDATE Usuario SET Nome_usu = ?,Data_nascimento_usu = ?,email_usu = ?,Tipo_usu= ?, Senha_usu= ? WHERE ID_usu = ?");
 				
 				 conecta._pst.setString(1, Nome_usu);
 				 conecta._pst.setString(2, Data_nascimento_usu);
 				 conecta._pst.setString(3, email_usu);
 				 conecta._pst.setInt(4, Tipo_usu);
-				 conecta._pst.setInt(5, ID_usu);
-				 conecta._pst.setString(6, Senha_usu);
+				 conecta._pst.setString(5, Senha_usu);
+				 conecta._pst.setInt(6, ID_usu);
 				 
 				 // Executo a atualizacao
 				 conecta._pst.executeUpdate();
-				 System.out.println("Sucesso! ;)");
+				 System.out.println("Sucesso! update ;)");
 			 } 
 			 catch (SQLException ex)
 			 {

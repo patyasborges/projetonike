@@ -36,7 +36,7 @@ public class ListenerExcUsuario implements ActionListener
 			List<Usuario> listaUsuario = new ArrayList<>();
 			
 			int idUsu, tipousu;
-			String nomeusu, datanasc, email;
+			String nomeusu, datanasc, email,senha;
 			
 			usu.setNome_usu(excluirUsuario.getTxtPesquisar().getText());
 			
@@ -46,12 +46,14 @@ public class ListenerExcUsuario implements ActionListener
 			datanasc = listaUsuario.get(0).getData_nascimento_usu();
 			email = listaUsuario.get(0).getEmail_usu();
 			tipousu = listaUsuario.get(0).getTipo_usu();
+			senha= listaUsuario.get(0).getSenha_usu();
 			
 			usu.setID_usu(idUsu);
 			
 			excluirUsuario.getLblNome().setText(nomeusu);
 			excluirUsuario.getLblDataNascimento().setText(datanasc);
 			excluirUsuario.getLblEmail().setText(email);
+			excluirUsuario.getLblSenha().setText(senha);
 			if(tipousu == 1)
 			{
 				excluirUsuario.getLblTipo().setText("Administrador");;

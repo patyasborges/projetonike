@@ -14,7 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 
-public class CadastroUsuarioView extends JFrame {
+public class CadastroUsuarioView extends JFrame 
+{
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
@@ -53,6 +54,7 @@ public class CadastroUsuarioView extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastroUsuarioView() {
+		setTitle("Cadastrar Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 461, 358);
 		contentPane = new JPanel();

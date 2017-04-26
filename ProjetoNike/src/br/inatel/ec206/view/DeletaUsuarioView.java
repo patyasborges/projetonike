@@ -32,6 +32,8 @@ public class DeletaUsuarioView extends JFrame {
 	private JButton btnSair;
 	
 	ListenerExcUsuario listener = ListenerExcUsuario.getInstance(this);
+	private JLabel lbl;
+	private JLabel lblSenha;
 
 	/**
 	 * Launch the application.
@@ -53,8 +55,9 @@ public class DeletaUsuarioView extends JFrame {
 	 * Create the frame.
 	 */
 	public DeletaUsuarioView() {
+		setTitle("Deletar Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 366);
+		setBounds(100, 100, 450, 412);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,6 +75,8 @@ public class DeletaUsuarioView extends JFrame {
 		contentPane.add(getLblTipo());
 		contentPane.add(getBtnDeletar());
 		contentPane.add(getBtnSair());
+		contentPane.add(getLbl());
+		contentPane.add(getLblSenha());
 	}
 
 	private JLabel getLblNewLabel() {
@@ -172,5 +177,19 @@ public class DeletaUsuarioView extends JFrame {
 			btnSair.addActionListener(listener);
 		}
 		return btnSair;
+	}
+	private JLabel getLbl() {
+		if (lbl == null) {
+			lbl = new JLabel("Senha:");
+			lbl.setBounds(15, 320, 69, 20);
+		}
+		return lbl;
+	}
+	public JLabel getLblSenha() {
+		if (lblSenha == null) {
+			lblSenha = new JLabel("");
+			lblSenha.setBounds(114, 320, 69, 20);
+		}
+		return lblSenha;
 	}
 }

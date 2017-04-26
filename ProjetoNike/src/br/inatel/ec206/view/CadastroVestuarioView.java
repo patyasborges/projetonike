@@ -15,19 +15,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 public class CadastroVestuarioView extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnCadastrar;
 	private JButton btnSair;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_6;
 	private JTextField txtDescricao;
 	private JRadioButton rdbtnMasculino;
 	private JRadioButton rdbtnFeminino;
@@ -38,17 +34,24 @@ public class CadastroVestuarioView extends JFrame {
 
 	ListenerCadVestuario listener = ListenerCadVestuario.getInstance(this);
 	private JComboBox cmbbxMarca;
+	private JLabel lblNewLabel_7;
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void main(String[] args) 
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
+				try 
+				{
 					CadastroVestuarioView frame = new CadastroVestuarioView();
 					frame.setVisible(true);
-				} catch (Exception e) {
+					
+				} catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
 			}
@@ -59,21 +62,17 @@ public class CadastroVestuarioView extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastroVestuarioView() {
+		setForeground(Color.BLACK);
+		setTitle("Cadastro Vestuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 483, 357);
+		setBounds(100, 100, 857, 599);
+		//setUndecorated(true); 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(getBtnCadastrar());
 		contentPane.add(getBtnSair());
-		contentPane.add(getLblNewLabel());
-		contentPane.add(getLblNewLabel_1());
-		contentPane.add(getLblNewLabel_2());
-		contentPane.add(getLblNewLabel_3());
-		contentPane.add(getLblNewLabel_4());
-		contentPane.add(getLblNewLabel_5());
-		contentPane.add(getLblNewLabel_6());
 		contentPane.add(getTxtDescricao());
 		contentPane.add(getRdbtnMasculino());
 		contentPane.add(getRdbtnFeminino());
@@ -82,14 +81,19 @@ public class CadastroVestuarioView extends JFrame {
 		contentPane.add(getCmbbxTamanho());
 		contentPane.add(getTxtCor());
 		contentPane.add(getCmbbxMarca());
+		contentPane.add(getLblNewLabel_7());
 	}
 
 	private JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
-			btnCadastrar = new JButton("Cadastrar");
+			btnCadastrar = new JButton("");
+			btnCadastrar.setIcon(new ImageIcon(CadastroVestuarioView.class.getResource("/br/inatel/ec206/imagens/addBotao.png")));
 			btnCadastrar.setActionCommand("CADASTRAR");
-			btnCadastrar.setBounds(326, 64, 115, 29);
+			btnCadastrar.setBounds(59, 448, 115, 69);
 			btnCadastrar.addActionListener(listener);
+			btnCadastrar.setOpaque(false);
+			btnCadastrar.setContentAreaFilled(false);
+			btnCadastrar.setBorderPainted(false);
 		}
 		return btnCadastrar;
 	}
@@ -97,79 +101,36 @@ public class CadastroVestuarioView extends JFrame {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(326, 127, 115, 29);
+			btnSair.setBounds(244, 488, 115, 29);
 			btnSair.addActionListener(listener);
 		}
 		return btnSair;
 	}
-	private JLabel getLblNewLabel() {
-		if (lblNewLabel == null) {
-			lblNewLabel = new JLabel("Descri\u00E7\u00E3o:");
-			lblNewLabel.setBounds(15, 32, 86, 20);
-		}
-		return lblNewLabel;
-	}
-	private JLabel getLblNewLabel_1() {
-		if (lblNewLabel_1 == null) {
-			lblNewLabel_1 = new JLabel("Genero:");
-			lblNewLabel_1.setBounds(15, 68, 69, 20);
-		}
-		return lblNewLabel_1;
-	}
-	private JLabel getLblNewLabel_2() {
-		if (lblNewLabel_2 == null) {
-			lblNewLabel_2 = new JLabel("Tipo:");
-			lblNewLabel_2.setBounds(15, 104, 69, 20);
-		}
-		return lblNewLabel_2;
-	}
-	private JLabel getLblNewLabel_3() {
-		if (lblNewLabel_3 == null) {
-			lblNewLabel_3 = new JLabel("Preco: ");
-			lblNewLabel_3.setBounds(15, 145, 69, 20);
-		}
-		return lblNewLabel_3;
-	}
-	private JLabel getLblNewLabel_4() {
-		if (lblNewLabel_4 == null) {
-			lblNewLabel_4 = new JLabel("Tamanho:");
-			lblNewLabel_4.setBounds(15, 187, 86, 20);
-		}
-		return lblNewLabel_4;
-	}
-	private JLabel getLblNewLabel_5() {
-		if (lblNewLabel_5 == null) {
-			lblNewLabel_5 = new JLabel("Cor:");
-			lblNewLabel_5.setBounds(15, 223, 69, 20);
-		}
-		return lblNewLabel_5;
-	}
-	private JLabel getLblNewLabel_6() {
-		if (lblNewLabel_6 == null) {
-			lblNewLabel_6 = new JLabel("Marca:");
-			lblNewLabel_6.setBounds(15, 259, 69, 20);
-		}
-		return lblNewLabel_6;
-	}
 	public JTextField getTxtDescricao() {
 		if (txtDescricao == null) {
 			txtDescricao = new JTextField();
-			txtDescricao.setBounds(103, 29, 146, 26);
+			txtDescricao.setBounds(181, 156, 296, 26);
 			txtDescricao.setColumns(10);
 		}
 		return txtDescricao;
 	}
 	public JRadioButton getRdbtnMasculino() {
 		if (rdbtnMasculino == null) {
-			rdbtnMasculino = new JRadioButton("Masculino");
-			rdbtnMasculino.setBounds(79, 64, 101, 29);
+			rdbtnMasculino = new JRadioButton("M");
+			rdbtnMasculino.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			rdbtnMasculino.setForeground(Color.WHITE);
+			rdbtnMasculino.setBackground(Color.BLACK);
+			rdbtnMasculino.setBounds(245, 185, 76, 29);
 		}
 		return rdbtnMasculino;
 	}
 	public JRadioButton getRdbtnFeminino() {
 		if (rdbtnFeminino == null) {
-			rdbtnFeminino = new JRadioButton("Feminino");
-			rdbtnFeminino.setBounds(181, 64, 101, 29);
+			rdbtnFeminino = new JRadioButton("F");
+			rdbtnFeminino.setFont(new Font("Tahoma", Font.PLAIN, 20));
+			rdbtnFeminino.setBackground(Color.BLACK);
+			rdbtnFeminino.setForeground(Color.WHITE);
+			rdbtnFeminino.setBounds(339, 185, 63, 29);
 		}
 		return rdbtnFeminino;
 	}
@@ -178,7 +139,7 @@ public class CadastroVestuarioView extends JFrame {
 		if (cmbbxEsporte == null) 
 		{
 			cmbbxEsporte = new JComboBox();
-			cmbbxEsporte.setBounds(89, 101, 160, 26);
+			cmbbxEsporte.setBounds(181, 226, 296, 26);
 			cmbbxEsporte.addItem("");
 			cmbbxEsporte.addItem("Futebol");
 			cmbbxEsporte.addItem("Basquete");
@@ -189,7 +150,7 @@ public class CadastroVestuarioView extends JFrame {
 	public JTextField getTxtPreco() {
 		if (txtPreco == null) {
 			txtPreco = new JTextField();
-			txtPreco.setBounds(79, 142, 146, 26);
+			txtPreco.setBounds(181, 268, 296, 26);
 			txtPreco.setColumns(10);
 		}
 		return txtPreco;
@@ -197,7 +158,7 @@ public class CadastroVestuarioView extends JFrame {
 	public JComboBox getCmbbxTamanho() {
 		if (cmbbxTamanho == null) {
 			cmbbxTamanho = new JComboBox();
-			cmbbxTamanho.setBounds(89, 184, 160, 26);
+			cmbbxTamanho.setBounds(181, 310, 296, 26);
 			cmbbxTamanho.addItem("");
 			cmbbxTamanho.addItem("PP");
 			cmbbxTamanho.addItem("P");
@@ -210,7 +171,7 @@ public class CadastroVestuarioView extends JFrame {
 	public JTextField getTxtCor() {
 		if (txtCor == null) {
 			txtCor = new JTextField();
-			txtCor.setBounds(79, 220, 146, 26);
+			txtCor.setBounds(184, 352, 293, 26);
 			txtCor.setColumns(10);
 		}
 		return txtCor;
@@ -218,7 +179,7 @@ public class CadastroVestuarioView extends JFrame {
 	public JComboBox getCmbbxMarca() {
 		if (cmbbxMarca == null) {
 			cmbbxMarca = new JComboBox();
-			cmbbxMarca.setBounds(89, 256, 160, 26);
+			cmbbxMarca.setBounds(181, 400, 296, 26);
 			cmbbxMarca.addItem("");
 			cmbbxMarca.addItem("Nike +");
 			cmbbxMarca.addItem("Jordan");
@@ -226,5 +187,13 @@ public class CadastroVestuarioView extends JFrame {
 			
 		}
 		return cmbbxMarca;
+	}
+	private JLabel getLblNewLabel_7() {
+		if (lblNewLabel_7 == null) {
+			lblNewLabel_7 = new JLabel("");
+			lblNewLabel_7.setIcon(new ImageIcon(CadastroVestuarioView.class.getResource("/br/inatel/ec206/imagens/cadastroVestuario.png")));
+			lblNewLabel_7.setBounds(0, 0, 835, 550);
+		}
+		return lblNewLabel_7;
 	}
 }
