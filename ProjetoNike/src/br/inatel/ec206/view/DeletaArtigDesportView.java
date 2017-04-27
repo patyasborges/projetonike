@@ -13,20 +13,15 @@ import br.inatel.ec206.controller.ListenerExcArtigDesport;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Color;
 
 public class DeletaArtigDesportView extends JFrame {
 
 	private JPanel contentPane;
-	private JLabel label;
-	private JLabel label_1;
-	private JLabel label_2;
-	private JLabel label_3;
-	private JLabel label_4;
-	private JLabel label_5;
-	private JLabel label_6;
 	private JButton btnDeletar;
 	private JButton btnSair;
-	private JLabel label_7;
 	private JButton btnPesquisar;
 	private JTextField txtPesquisa;
 	private JLabel lblDescricao;
@@ -39,6 +34,7 @@ public class DeletaArtigDesportView extends JFrame {
 	
 	
 	ListenerExcArtigDesport listener = ListenerExcArtigDesport.getInstance(this);
+	private JLabel lblNewLabel;
 	
 
 	/**
@@ -63,21 +59,13 @@ public class DeletaArtigDesportView extends JFrame {
 	public DeletaArtigDesportView() {
 		setTitle("Deleta Artigos Desportivos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 633, 500);
+		setBounds(100, 100, 854, 601);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(getLabel());
-		contentPane.add(getLabel_1());
-		contentPane.add(getLabel_2());
-		contentPane.add(getLabel_3());
-		contentPane.add(getLabel_4());
-		contentPane.add(getLabel_5());
-		contentPane.add(getLabel_6());
 		contentPane.add(getBtnDeletar());
 		contentPane.add(getBtnSair());
-		contentPane.add(getLabel_7());
 		contentPane.add(getBtnPesquisar());
 		contentPane.add(getTxtPesquisa());
 		contentPane.add(getLblDescricao());
@@ -87,62 +75,13 @@ public class DeletaArtigDesportView extends JFrame {
 		contentPane.add(getLblTamanho());
 		contentPane.add(getLblCor());
 		contentPane.add(getLblMarca());
-	}
-
-	private JLabel getLabel() {
-		if (label == null) {
-			label = new JLabel("Descricao: ");
-			label.setBounds(35, 67, 87, 20);
-		}
-		return label;
-	}
-	private JLabel getLabel_1() {
-		if (label_1 == null) {
-			label_1 = new JLabel("Genero:");
-			label_1.setBounds(35, 112, 69, 20);
-		}
-		return label_1;
-	}
-	private JLabel getLabel_2() {
-		if (label_2 == null) {
-			label_2 = new JLabel("Esporte: ");
-			label_2.setBounds(35, 163, 69, 20);
-		}
-		return label_2;
-	}
-	private JLabel getLabel_3() {
-		if (label_3 == null) {
-			label_3 = new JLabel("Preco:");
-			label_3.setBounds(35, 199, 69, 20);
-		}
-		return label_3;
-	}
-	private JLabel getLabel_4() {
-		if (label_4 == null) {
-			label_4 = new JLabel("Tamanho:");
-			label_4.setBounds(35, 243, 87, 20);
-		}
-		return label_4;
-	}
-	private JLabel getLabel_5() {
-		if (label_5 == null) {
-			label_5 = new JLabel("Cor:");
-			label_5.setBounds(35, 292, 69, 20);
-		}
-		return label_5;
-	}
-	private JLabel getLabel_6() {
-		if (label_6 == null) {
-			label_6 = new JLabel("Marca:");
-			label_6.setBounds(35, 333, 69, 20);
-		}
-		return label_6;
+		contentPane.add(getLblNewLabel());
 	}
 	private JButton getBtnDeletar() {
 		if (btnDeletar == null) {
 			btnDeletar = new JButton("Deletar");
 			btnDeletar.setActionCommand("DELETAR");
-			btnDeletar.setBounds(101, 415, 115, 29);
+			btnDeletar.setBounds(95, 500, 115, 29);
 			btnDeletar.addActionListener(listener);
 		}
 		return btnDeletar;
@@ -151,17 +90,10 @@ public class DeletaArtigDesportView extends JFrame {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(277, 415, 115, 29);
+			btnSair.setBounds(294, 500, 115, 29);
 			btnSair.addActionListener(listener);
 		}
 		return btnSair;
-	}
-	private JLabel getLabel_7() {
-		if (label_7 == null) {
-			label_7 = new JLabel("Descricao: ");
-			label_7.setBounds(35, 32, 87, 20);
-		}
-		return label_7;
 	}
 	private JButton getBtnPesquisar() {
 		if (btnPesquisar == null) {
@@ -183,50 +115,72 @@ public class DeletaArtigDesportView extends JFrame {
 	public JLabel getLblDescricao() {
 		if (lblDescricao == null) {
 			lblDescricao = new JLabel("");
-			lblDescricao.setBounds(147, 67, 69, 20);
+			lblDescricao.setForeground(Color.WHITE);
+			lblDescricao.setFont(new Font("Tahoma", Font.PLAIN, 19));
+			lblDescricao.setBounds(200, 185, 209, 20);
 		}
 		return lblDescricao;
 	}
 	public JLabel getLblGenero() {
 		if (lblGenero == null) {
 			lblGenero = new JLabel("");
-			lblGenero.setBounds(149, 112, 69, 20);
+			lblGenero.setForeground(Color.WHITE);
+			lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 19));
+			lblGenero.setBounds(200, 225, 209, 20);
 		}
 		return lblGenero;
 	}
 	public JLabel getLblEsporte() {
 		if (lblEsporte == null) {
 			lblEsporte = new JLabel("");
-			lblEsporte.setBounds(149, 163, 69, 20);
+			lblEsporte.setForeground(Color.WHITE);
+			lblEsporte.setFont(new Font("Tahoma", Font.PLAIN, 19));
+			lblEsporte.setBounds(200, 272, 209, 20);
 		}
 		return lblEsporte;
 	}
 	public JLabel getLblPreco() {
 		if (lblPreco == null) {
 			lblPreco = new JLabel("");
-			lblPreco.setBounds(147, 199, 69, 20);
+			lblPreco.setForeground(Color.WHITE);
+			lblPreco.setFont(new Font("Tahoma", Font.PLAIN, 19));
+			lblPreco.setBounds(200, 314, 209, 20);
 		}
 		return lblPreco;
 	}
 	public JLabel getLblTamanho() {
 		if (lblTamanho == null) {
 			lblTamanho = new JLabel("");
-			lblTamanho.setBounds(149, 243, 69, 20);
+			lblTamanho.setForeground(Color.WHITE);
+			lblTamanho.setFont(new Font("Tahoma", Font.PLAIN, 19));
+			lblTamanho.setBounds(200, 351, 209, 20);
 		}
 		return lblTamanho;
 	}
 	public JLabel getLblCor() {
 		if (lblCor == null) {
 			lblCor = new JLabel("");
-			lblCor.setBounds(147, 292, 69, 20);
+			lblCor.setForeground(Color.WHITE);
+			lblCor.setFont(new Font("Tahoma", Font.PLAIN, 19));
+			lblCor.setBounds(200, 404, 209, 20);
 		}
 		return lblCor;
 	}
 	public JLabel getLblMarca() {
 		if (lblMarca == null) {
 			lblMarca = new JLabel("");
-			lblMarca.setBounds(149, 333, 69, 20);
+			lblMarca.setForeground(Color.WHITE);
+			lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 19));
+			lblMarca.setBounds(200, 440, 209, 20);
 		}
 		return lblMarca;
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(DeletaArtigDesportView.class.getResource("/br/inatel/ec206/imagens/remocarArtigos.png")));
+			lblNewLabel.setBounds(0, 0, 840, 550);
+		}
+		return lblNewLabel;
 	}
 }

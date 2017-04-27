@@ -13,16 +13,17 @@ import br.inatel.ec206.controller.ListenerCadMarca;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class CadastroEsporteView extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtEsporte;
-	private JLabel lblNewLabel;
 	private JButton btnCadastrar;
 	private JButton btnSair;
 
 	ListenerCadEsporte listener = ListenerCadEsporte.getInstance(this);
+	private JLabel lblNewLabel_1;
 	/**
 	 * Launch the application.
 	 */
@@ -45,37 +46,30 @@ public class CadastroEsporteView extends JFrame {
 	public CadastroEsporteView() {
 		setTitle("Cadastro Esporte");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 863, 593);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(getTxtEsporte());
-		contentPane.add(getLblNewLabel());
 		contentPane.add(getBtnCadastrar());
 		contentPane.add(getBtnSair());
+		contentPane.add(getLblNewLabel_1());
 	}
 
 	public JTextField getTxtEsporte() {
 		if (txtEsporte == null) {
 			txtEsporte = new JTextField();
-			txtEsporte.setBounds(122, 47, 146, 26);
+			txtEsporte.setBounds(149, 197, 235, 26);
 			txtEsporte.setColumns(10);
 		}
 		return txtEsporte;
-	}
-	private JLabel getLblNewLabel() {
-		if (lblNewLabel == null) {
-			lblNewLabel = new JLabel("Esporte:");
-			lblNewLabel.setBounds(15, 50, 69, 20);
-		}
-		return lblNewLabel;
 	}
 	private JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton("Cadastrar");
 			btnCadastrar.setActionCommand("CADASTRAR");
-			btnCadastrar.setBounds(26, 112, 115, 29);
+			btnCadastrar.setBounds(171, 365, 115, 29);
 			btnCadastrar.addActionListener(listener);
 		}
 		return btnCadastrar;
@@ -84,9 +78,17 @@ public class CadastroEsporteView extends JFrame {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(165, 112, 115, 29);
+			btnSair.setBounds(398, 365, 115, 29);
 			btnSair.addActionListener(listener);
 		}
 		return btnSair;
+	}
+	private JLabel getLblNewLabel_1() {
+		if (lblNewLabel_1 == null) {
+			lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(CadastroEsporteView.class.getResource("/br/inatel/ec206/imagens/cadastroEsporte.png")));
+			lblNewLabel_1.setBounds(0, 0, 850, 550);
+		}
+		return lblNewLabel_1;
 	}
 }

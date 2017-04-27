@@ -13,17 +13,15 @@ import br.inatel.ec206.controller.ListenerExcUsuario;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Color;
 
 public class DeletaUsuarioView extends JFrame {
 
 	private JPanel contentPane;
-	private JLabel lblNewLabel;
 	private JTextField txtPesquisar;
 	private JButton btnPesquisar;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
 	private JLabel lblNome;
 	private JLabel lblDataNascimento;
 	private JLabel lblEmail;
@@ -32,8 +30,8 @@ public class DeletaUsuarioView extends JFrame {
 	private JButton btnSair;
 	
 	ListenerExcUsuario listener = ListenerExcUsuario.getInstance(this);
-	private JLabel lbl;
 	private JLabel lblSenha;
+	private JLabel lblNewLabel_5;
 
 	/**
 	 * Launch the application.
@@ -57,39 +55,26 @@ public class DeletaUsuarioView extends JFrame {
 	public DeletaUsuarioView() {
 		setTitle("Deletar Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 412);
+		setBounds(100, 100, 841, 603);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(getLblNewLabel());
 		contentPane.add(getTxtPesquisar());
 		contentPane.add(getBtnPesquisar());
-		contentPane.add(getLblNewLabel_1());
-		contentPane.add(getLblNewLabel_2());
-		contentPane.add(getLblNewLabel_3());
-		contentPane.add(getLblNewLabel_4());
 		contentPane.add(getLblNome());
 		contentPane.add(getLblDataNascimento());
 		contentPane.add(getLblEmail());
 		contentPane.add(getLblTipo());
 		contentPane.add(getBtnDeletar());
 		contentPane.add(getBtnSair());
-		contentPane.add(getLbl());
 		contentPane.add(getLblSenha());
-	}
-
-	private JLabel getLblNewLabel() {
-		if (lblNewLabel == null) {
-			lblNewLabel = new JLabel("Nome:");
-			lblNewLabel.setBounds(15, 31, 69, 20);
-		}
-		return lblNewLabel;
+		contentPane.add(getLblNewLabel_5());
 	}
 	public JTextField getTxtPesquisar() {
 		if (txtPesquisar == null) {
 			txtPesquisar = new JTextField();
-			txtPesquisar.setBounds(115, 28, 146, 26);
+			txtPesquisar.setBounds(255, 152, 146, 26);
 			txtPesquisar.setColumns(10);
 		}
 		return txtPesquisar;
@@ -98,73 +83,57 @@ public class DeletaUsuarioView extends JFrame {
 		if (btnPesquisar == null) {
 			btnPesquisar = new JButton("Pesquisar");
 			btnPesquisar.setActionCommand("PESQUISAR");
-			btnPesquisar.setBounds(68, 78, 115, 29);
+			btnPesquisar.setBounds(444, 151, 115, 29);
 			btnPesquisar.addActionListener(listener);
 		}
 		return btnPesquisar;
 	}
-	private JLabel getLblNewLabel_1() {
-		if (lblNewLabel_1 == null) {
-			lblNewLabel_1 = new JLabel("Nome:");
-			lblNewLabel_1.setBounds(15, 136, 69, 20);
-		}
-		return lblNewLabel_1;
-	}
-	private JLabel getLblNewLabel_2() {
-		if (lblNewLabel_2 == null) {
-			lblNewLabel_2 = new JLabel("Data de Nascimento:");
-			lblNewLabel_2.setBounds(15, 178, 162, 20);
-		}
-		return lblNewLabel_2;
-	}
-	private JLabel getLblNewLabel_3() {
-		if (lblNewLabel_3 == null) {
-			lblNewLabel_3 = new JLabel("E-mail:");
-			lblNewLabel_3.setBounds(15, 224, 69, 20);
-		}
-		return lblNewLabel_3;
-	}
-	private JLabel getLblNewLabel_4() {
-		if (lblNewLabel_4 == null) {
-			lblNewLabel_4 = new JLabel("Tipo:");
-			lblNewLabel_4.setBounds(15, 274, 69, 20);
-		}
-		return lblNewLabel_4;
-	}
 	public JLabel getLblNome() {
 		if (lblNome == null) {
 			lblNome = new JLabel("");
-			lblNome.setBounds(115, 136, 69, 20);
+			lblNome.setForeground(Color.WHITE);
+			lblNome.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+			lblNome.setBounds(255, 205, 263, 20);
 		}
 		return lblNome;
 	}
 	public JLabel getLblDataNascimento() {
 		if (lblDataNascimento == null) {
 			lblDataNascimento = new JLabel("");
-			lblDataNascimento.setBounds(192, 178, 69, 20);
+			lblDataNascimento.setForeground(Color.WHITE);
+			lblDataNascimento.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+			lblDataNascimento.setBounds(254, 256, 263, 20);
 		}
 		return lblDataNascimento;
 	}
 	public JLabel getLblEmail() {
 		if (lblEmail == null) {
 			lblEmail = new JLabel("");
-			lblEmail.setBounds(114, 224, 69, 20);
+			lblEmail.setForeground(Color.WHITE);
+			lblEmail.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+			lblEmail.setBounds(255, 305, 263, 20);
 		}
 		return lblEmail;
 	}
 	public JLabel getLblTipo() {
 		if (lblTipo == null) {
 			lblTipo = new JLabel("");
-			lblTipo.setBounds(114, 274, 69, 20);
+			lblTipo.setForeground(Color.WHITE);
+			lblTipo.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+			lblTipo.setBounds(286, 346, 232, 20);
 		}
 		return lblTipo;
 	}
 	private JButton getBtnDeletar() {
 		if (btnDeletar == null) {
 			btnDeletar = new JButton("Deletar");
+			btnDeletar.setIcon(new ImageIcon(DeletaUsuarioView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
 			btnDeletar.setActionCommand("DELETAR");
-			btnDeletar.setBounds(250, 132, 115, 29);
+			btnDeletar.setBounds(36, 457, 168, 59);
 			btnDeletar.addActionListener(listener);
+			btnDeletar.setOpaque(false);
+			btnDeletar.setContentAreaFilled(false);
+			btnDeletar.setBorderPainted(false);
 			
 		}
 		return btnDeletar;
@@ -173,23 +142,26 @@ public class DeletaUsuarioView extends JFrame {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(250, 215, 115, 29);
+			btnSair.setBounds(286, 472, 115, 29);
 			btnSair.addActionListener(listener);
 		}
 		return btnSair;
 	}
-	private JLabel getLbl() {
-		if (lbl == null) {
-			lbl = new JLabel("Senha:");
-			lbl.setBounds(15, 320, 69, 20);
-		}
-		return lbl;
-	}
 	public JLabel getLblSenha() {
 		if (lblSenha == null) {
 			lblSenha = new JLabel("");
-			lblSenha.setBounds(114, 320, 69, 20);
+			lblSenha.setForeground(Color.WHITE);
+			lblSenha.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+			lblSenha.setBounds(256, 394, 263, 20);
 		}
 		return lblSenha;
+	}
+	private JLabel getLblNewLabel_5() {
+		if (lblNewLabel_5 == null) {
+			lblNewLabel_5 = new JLabel("");
+			lblNewLabel_5.setIcon(new ImageIcon(DeletaUsuarioView.class.getResource("/br/inatel/ec206/imagens/remocaoUsuarios.png")));
+			lblNewLabel_5.setBounds(0, 0, 819, 550);
+		}
+		return lblNewLabel_5;
 	}
 }

@@ -15,17 +15,13 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Color;
 
 public class CadastroArtigDesportView extends JFrame {
 
 	private JPanel contentPane;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
-	private JLabel lblNewLabel_5;
-	private JLabel lblNewLabel_6;
 	private JTextField txtDescricao;
 	private JComboBox cmbbxEsporte;
 	private JTextField txtPreco;
@@ -39,6 +35,7 @@ public class CadastroArtigDesportView extends JFrame {
 
 	
 	ListenerCadArtigDesport listener = ListenerCadArtigDesport.getInstance(this);
+	private JLabel lblNewLabel_7;
 	
 	/**
 	 * Launch the application.
@@ -62,18 +59,11 @@ public class CadastroArtigDesportView extends JFrame {
 	public CadastroArtigDesportView() {
 		setTitle("Cadastro Artigos Desportivos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 503, 516);
+		setBounds(100, 100, 855, 598);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(getLblNewLabel());
-		contentPane.add(getLblNewLabel_1());
-		contentPane.add(getLblNewLabel_2());
-		contentPane.add(getLblNewLabel_3());
-		contentPane.add(getLblNewLabel_4());
-		contentPane.add(getLblNewLabel_5());
-		contentPane.add(getLblNewLabel_6());
 		contentPane.add(getTxtDescricao());
 		contentPane.add(getCmbbxEsporte());
 		contentPane.add(getTxtPreco());
@@ -84,60 +74,12 @@ public class CadastroArtigDesportView extends JFrame {
 		contentPane.add(getBtnSair());
 		contentPane.add(getRdbtnFeminino());
 		contentPane.add(getRdbtnMasculino());
-	}
-	private JLabel getLblNewLabel() {
-		if (lblNewLabel == null) {
-			lblNewLabel = new JLabel("Descricao: ");
-			lblNewLabel.setBounds(15, 45, 87, 20);
-		}
-		return lblNewLabel;
-	}
-	private JLabel getLblNewLabel_1() {
-		if (lblNewLabel_1 == null) {
-			lblNewLabel_1 = new JLabel("Genero:");
-			lblNewLabel_1.setBounds(15, 90, 69, 20);
-		}
-		return lblNewLabel_1;
-	}
-	private JLabel getLblNewLabel_2() {
-		if (lblNewLabel_2 == null) {
-			lblNewLabel_2 = new JLabel("Esporte: ");
-			lblNewLabel_2.setBounds(15, 141, 69, 20);
-		}
-		return lblNewLabel_2;
-	}
-	private JLabel getLblNewLabel_3() {
-		if (lblNewLabel_3 == null) {
-			lblNewLabel_3 = new JLabel("Preco:");
-			lblNewLabel_3.setBounds(15, 177, 69, 20);
-		}
-		return lblNewLabel_3;
-	}
-	private JLabel getLblNewLabel_4() {
-		if (lblNewLabel_4 == null) {
-			lblNewLabel_4 = new JLabel("Tamanho:");
-			lblNewLabel_4.setBounds(15, 221, 87, 20);
-		}
-		return lblNewLabel_4;
-	}
-	private JLabel getLblNewLabel_5() {
-		if (lblNewLabel_5 == null) {
-			lblNewLabel_5 = new JLabel("Cor:");
-			lblNewLabel_5.setBounds(15, 270, 69, 20);
-		}
-		return lblNewLabel_5;
-	}
-	private JLabel getLblNewLabel_6() {
-		if (lblNewLabel_6 == null) {
-			lblNewLabel_6 = new JLabel("Marca:");
-			lblNewLabel_6.setBounds(15, 311, 69, 20);
-		}
-		return lblNewLabel_6;
+		contentPane.add(getLblNewLabel_7());
 	}
 	public JTextField getTxtDescricao() {
 		if (txtDescricao == null) {
 			txtDescricao = new JTextField();
-			txtDescricao.setBounds(138, 42, 146, 26);
+			txtDescricao.setBounds(183, 151, 181, 26);
 			txtDescricao.setColumns(10);
 		}
 		return txtDescricao;
@@ -149,14 +91,14 @@ public class CadastroArtigDesportView extends JFrame {
 			cmbbxEsporte.addItem("Futebol");
 			cmbbxEsporte.addItem("Basquete");
 			cmbbxEsporte.addItem("Volei");
-			cmbbxEsporte.setBounds(138, 138, 146, 26);
+			cmbbxEsporte.setBounds(183, 237, 175, 26);
 		}
 		return cmbbxEsporte;
 	}
 	public JTextField getTxtPreco() {
 		if (txtPreco == null) {
 			txtPreco = new JTextField();
-			txtPreco.setBounds(138, 174, 146, 26);
+			txtPreco.setBounds(183, 279, 175, 26);
 			txtPreco.setColumns(10);
 		}
 		return txtPreco;
@@ -164,7 +106,7 @@ public class CadastroArtigDesportView extends JFrame {
 	public JTextField getTxtTamanho() {
 		if (txtTamanho == null) {
 			txtTamanho = new JTextField();
-			txtTamanho.setBounds(138, 218, 146, 26);
+			txtTamanho.setBounds(183, 316, 175, 26);
 			txtTamanho.setColumns(10);
 		}
 		return txtTamanho;
@@ -172,7 +114,7 @@ public class CadastroArtigDesportView extends JFrame {
 	public JTextField getTxtCor() {
 		if (txtCor == null) {
 			txtCor = new JTextField();
-			txtCor.setBounds(138, 267, 146, 26);
+			txtCor.setBounds(183, 358, 175, 26);
 			txtCor.setColumns(10);
 		}
 		return txtCor;
@@ -184,7 +126,7 @@ public class CadastroArtigDesportView extends JFrame {
 			cmbbxMarca.addItem("Nike +");
 			cmbbxMarca.addItem("Jordan");
 			cmbbxMarca.addItem("Outra");
-			cmbbxMarca.setBounds(138, 308, 146, 26);
+			cmbbxMarca.setBounds(183, 400, 175, 26);
 		}
 		return cmbbxMarca;
 	}
@@ -192,7 +134,7 @@ public class CadastroArtigDesportView extends JFrame {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton("Cadastrar");
 			btnCadastrar.setActionCommand("CADASTRAR");
-			btnCadastrar.setBounds(81, 393, 115, 29);
+			btnCadastrar.setBounds(85, 474, 115, 29);
 			
 			btnCadastrar.addActionListener(listener);
 		}
@@ -202,7 +144,7 @@ public class CadastroArtigDesportView extends JFrame {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(257, 393, 115, 29);
+			btnSair.setBounds(249, 474, 115, 29);
 			
 			btnSair.addActionListener(listener);
 		}
@@ -211,8 +153,11 @@ public class CadastroArtigDesportView extends JFrame {
 	public JRadioButton getRdbtnFeminino() {
 		if (rdbtnFeminino == null) {
 			rdbtnFeminino = new JRadioButton("F");
+			rdbtnFeminino.setBackground(Color.BLACK);
+			rdbtnFeminino.setForeground(Color.WHITE);
+			rdbtnFeminino.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
 			rdbtnFeminino.setActionCommand("F");
-			rdbtnFeminino.setBounds(129, 86, 41, 29);
+			rdbtnFeminino.setBounds(193, 189, 52, 29);
 			rdbtnFeminino.addActionListener(listener);
 		}
 		return rdbtnFeminino;
@@ -220,11 +165,21 @@ public class CadastroArtigDesportView extends JFrame {
 	public JRadioButton getRdbtnMasculino() {
 		if (rdbtnMasculino == null) {
 			rdbtnMasculino = new JRadioButton("M");
+			rdbtnMasculino.setBackground(Color.BLACK);
+			rdbtnMasculino.setForeground(Color.WHITE);
+			rdbtnMasculino.setFont(new Font("Tahoma", Font.PLAIN, 20));
 			rdbtnMasculino.setActionCommand("M");
-			rdbtnMasculino.setBounds(177, 86, 52, 29);
+			rdbtnMasculino.setBounds(264, 189, 52, 29);
 			rdbtnMasculino.addActionListener(listener);
 		}
 		return rdbtnMasculino;
 	}
-	
+	private JLabel getLblNewLabel_7() {
+		if (lblNewLabel_7 == null) {
+			lblNewLabel_7 = new JLabel("");
+			lblNewLabel_7.setIcon(new ImageIcon(CadastroArtigDesportView.class.getResource("/br/inatel/ec206/imagens/cadastroArtigos.png")));
+			lblNewLabel_7.setBounds(0, 0, 833, 550);
+		}
+		return lblNewLabel_7;
+	}
 }
