@@ -69,5 +69,15 @@ public class ListenerCadUsuario implements ActionListener {
 		{
 			cadastroUsuario.dispose();
 		}
+		
+		if (event.getActionCommand() == "CLI") 
+		{
+			cadastroUsuario.getRdbtnAdministrador().setSelected(false);
+		}
+		
+		if (event.getActionCommand() == "ADM") 
+		{
+			cadastroUsuario.getRdbtnCliente().setSelected(false);
+		}
 	}
 }

@@ -211,15 +211,20 @@ public class CadastroArtigDesportView extends JFrame {
 	public JRadioButton getRdbtnFeminino() {
 		if (rdbtnFeminino == null) {
 			rdbtnFeminino = new JRadioButton("F");
+			rdbtnFeminino.setActionCommand("F");
 			rdbtnFeminino.setBounds(129, 86, 41, 29);
+			rdbtnFeminino.addActionListener(listener);
 		}
 		return rdbtnFeminino;
 	}
 	public JRadioButton getRdbtnMasculino() {
 		if (rdbtnMasculino == null) {
 			rdbtnMasculino = new JRadioButton("M");
+			rdbtnMasculino.setActionCommand("M");
 			rdbtnMasculino.setBounds(177, 86, 52, 29);
+			rdbtnMasculino.addActionListener(listener);
 		}
 		return rdbtnMasculino;
 	}
+	
 }

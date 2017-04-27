@@ -116,14 +116,18 @@ public class EdicaoArtigDesportView extends JFrame {
 	public JRadioButton getRdbtnFeminino() {
 		if (rdbtnFeminino == null) {
 			rdbtnFeminino = new JRadioButton("F");
+			rdbtnFeminino.setActionCommand("F");
 			rdbtnFeminino.setBounds(129, 95, 41, 29);
+			rdbtnFeminino.addActionListener(listener);
 		}
 		return rdbtnFeminino;
 	}
 	public JRadioButton getRdbtnMasculino() {
 		if (rdbtnMasculino == null) {
 			rdbtnMasculino = new JRadioButton("M");
+			rdbtnMasculino.setActionCommand("M");
 			rdbtnMasculino.setBounds(183, 95, 52, 29);
+			rdbtnMasculino.addActionListener(listener);
 		}
 		return rdbtnMasculino;
 	}

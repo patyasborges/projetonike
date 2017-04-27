@@ -117,20 +117,24 @@ public class CadastroVestuarioView extends JFrame {
 	public JRadioButton getRdbtnMasculino() {
 		if (rdbtnMasculino == null) {
 			rdbtnMasculino = new JRadioButton("M");
+			rdbtnMasculino.setActionCommand("M");
 			rdbtnMasculino.setFont(new Font("Tahoma", Font.PLAIN, 20));
 			rdbtnMasculino.setForeground(Color.WHITE);
 			rdbtnMasculino.setBackground(Color.BLACK);
 			rdbtnMasculino.setBounds(245, 185, 76, 29);
+			rdbtnMasculino.addActionListener(listener);
 		}
 		return rdbtnMasculino;
 	}
 	public JRadioButton getRdbtnFeminino() {
 		if (rdbtnFeminino == null) {
 			rdbtnFeminino = new JRadioButton("F");
+			rdbtnFeminino.setActionCommand("F");
 			rdbtnFeminino.setFont(new Font("Tahoma", Font.PLAIN, 20));
 			rdbtnFeminino.setBackground(Color.BLACK);
 			rdbtnFeminino.setForeground(Color.WHITE);
 			rdbtnFeminino.setBounds(339, 185, 63, 29);
+			rdbtnFeminino.addActionListener(listener);
 		}
 		return rdbtnFeminino;
 	}

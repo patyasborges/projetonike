@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import br.inatel.ec206.model.ArtigosDesportivos;
 import br.inatel.ec206.model.ArtigosDesportivosDAO;
 import br.inatel.ec206.model.Vestuario;
@@ -34,126 +36,157 @@ public class ListenerEditArtigDesport implements ActionListener
 		// TODO Auto-generated method stub
 		if (event.getActionCommand() == "PESQUISAR") 
 		{
-			ArtigosDesportivosDAO artigo = new ArtigosDesportivosDAO();
-			List<ArtigosDesportivos> listaArtigos = new ArrayList<>();
-			
-			int idArtigo, idMarca, idEsporte,marca=0;
-			String descricao, tamanho, cor,genero, esporte, precoString;
-			double preco;
-			
-			artigo.setDescricao_art(editaArtigo.getTxtPesquisa().getText());
-			
-			listaArtigos = artigo.selecionaPorDescricao();
-			idArtigo= listaArtigos.get(0).getID_art();
-			descricao=listaArtigos.get(0).getDescricao_art();
-			genero=listaArtigos.get(0).getGenero_art();
-			idEsporte=listaArtigos.get(0).getID_esporte();
-			preco=listaArtigos.get(0).getPreco_art();
-			tamanho=listaArtigos.get(0).getTamanho_art();
-			cor=listaArtigos.get(0).getCor_art();
-			idMarca=listaArtigos.get(0).getID_marca();
-			
-			artigo.setID_art(idArtigo);
-			
-			precoString=String.valueOf(preco);
-			
-			if(genero.equals("F") || genero.equals("f"))
+			if(editaArtigo.getTxtPesquisa().getText().equals(""))
 			{
-				editaArtigo.getRdbtnFeminino().setSelected(true);
-				editaArtigo.getRdbtnMasculino().setSelected(false);
+				JOptionPane.showMessageDialog(null, "Digite os Dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
 			}
 			else
 			{
-				if(genero.equals("M")|| genero.equals("m"))
+				ArtigosDesportivosDAO artigo = new ArtigosDesportivosDAO();
+				List<ArtigosDesportivos> listaArtigos = new ArrayList<>();
+				
+				int idArtigo, idMarca, idEsporte,marca=0;
+				String descricao, tamanho, cor,genero, esporte, precoString;
+				double preco;
+				
+				artigo.setDescricao_art(editaArtigo.getTxtPesquisa().getText());
+				
+				listaArtigos = artigo.selecionaPorDescricao();
+				idArtigo= listaArtigos.get(0).getID_art();
+				descricao=listaArtigos.get(0).getDescricao_art();
+				genero=listaArtigos.get(0).getGenero_art();
+				idEsporte=listaArtigos.get(0).getID_esporte();
+				preco=listaArtigos.get(0).getPreco_art();
+				tamanho=listaArtigos.get(0).getTamanho_art();
+				cor=listaArtigos.get(0).getCor_art();
+				idMarca=listaArtigos.get(0).getID_marca();
+				
+				artigo.setID_art(idArtigo);
+				
+				precoString=String.valueOf(preco);
+				
+				if(genero.equals("F") || genero.equals("f"))
 				{
-					editaArtigo.getRdbtnMasculino().setSelected(true);
-					editaArtigo.getRdbtnFeminino().setSelected(false);
+					editaArtigo.getRdbtnFeminino().setSelected(true);
+					editaArtigo.getRdbtnMasculino().setSelected(false);
 				}
+				else
+				{
+					if(genero.equals("M")|| genero.equals("m"))
+					{
+						editaArtigo.getRdbtnMasculino().setSelected(true);
+						editaArtigo.getRdbtnFeminino().setSelected(false);
+					}
+				}
+				
+				editaArtigo.getTxtDescricao().setText(descricao);
+				editaArtigo.getTxtPreco().setText(precoString);
+				editaArtigo.getCmbbxMarca().setSelectedIndex(marca);
+				editaArtigo.getTxtCor().setText(cor);
 			}
 			
-			editaArtigo.getTxtDescricao().setText(descricao);
-			editaArtigo.getTxtPreco().setText(precoString);
-			editaArtigo.getCmbbxMarca().setSelectedIndex(marca);
-			editaArtigo.getTxtCor().setText(cor);
+			
+			
 			
 		}
 		
 		if (event.getActionCommand() == "EDITAR") 
 		{
-			ArtigosDesportivosDAO artigo = new ArtigosDesportivosDAO();
-			List<ArtigosDesportivos> listaArtigo = new ArrayList<>();
 			
-			int idArt;
-			
-			artigo.setDescricao_art(editaArtigo.getTxtPesquisa().getText());
-			listaArtigo=artigo.selecionaPorDescricao();
-			idArt= listaArtigo.get(0).getID_art();
-			
-			esporte=editaArtigo.getCmbbxEsporte().getSelectedItem().toString();
-			marca =editaArtigo.getCmbbxMarca().getSelectedItem().toString();
-		
-			artigo.setID_art(idArt);
-			artigo.setDescricao_art(editaArtigo.getTxtDescricao().getText());
-			
-			if(editaArtigo.getRdbtnFeminino().isSelected())
+			if(editaArtigo.getTxtCor().getText().equals("") || editaArtigo.getTxtDescricao().getText().equals("") || editaArtigo.getTxtPreco().getText().equals("")
+					|| editaArtigo.getTxtTamanho().getText().equals("") || editaArtigo.getCmbbxEsporte().getSelectedItem().toString().equals("") ||  editaArtigo.getCmbbxMarca().getSelectedItem().toString().equals("")
+					||(!editaArtigo.getRdbtnFeminino().isSelected() && !editaArtigo.getRdbtnMasculino().isSelected()))
 			{
-				genero="F";
+				JOptionPane.showMessageDialog(null, "Digite os Dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
 			}
 			else
 			{
-				if(editaArtigo.getRdbtnMasculino().isSelected())
+				ArtigosDesportivosDAO artigo = new ArtigosDesportivosDAO();
+				List<ArtigosDesportivos> listaArtigo = new ArrayList<>();
+				
+				int idArt;
+				
+				artigo.setDescricao_art(editaArtigo.getTxtPesquisa().getText());
+				listaArtigo=artigo.selecionaPorDescricao();
+				idArt= listaArtigo.get(0).getID_art();
+				
+				esporte=editaArtigo.getCmbbxEsporte().getSelectedItem().toString();
+				marca =editaArtigo.getCmbbxMarca().getSelectedItem().toString();
+			
+				artigo.setID_art(idArt);
+				artigo.setDescricao_art(editaArtigo.getTxtDescricao().getText());
+				
+				if(editaArtigo.getRdbtnFeminino().isSelected())
 				{
-					genero="M";
+					genero="F";
 				}
-			}
-			artigo.setGenero_art(genero);
-			
-			switch(esporte)
-			{
-				case "":
-				break;
+				else
+				{
+					if(editaArtigo.getRdbtnMasculino().isSelected())
+					{
+						genero="M";
+					}
+				}
+				artigo.setGenero_art(genero);
 				
-				case "Futebol":
-					id_esporte=1;
+				switch(esporte)
+				{
+					case "":
 					break;
 					
-				case "Basquete":
-					id_esporte=2;
-					break;
-					
-				case "Volei":
-					id_esporte=3;
-					break;
-			
-			}
-			
-			
-			switch(marca)
-			{
-				case "":
-				break;
+					case "Futebol":
+						id_esporte=1;
+						break;
+						
+					case "Basquete":
+						id_esporte=2;
+						break;
+						
+					case "Volei":
+						id_esporte=3;
+						break;
 				
-				case "Nike +":
-					id_marca=1;
+				}
+				
+				
+				switch(marca)
+				{
+					case "":
 					break;
 					
-				case "Jordan":
-					id_marca=2;
-					break;
-					
-				case "Outra":
-					id_marca=3;
-					break;
-			
+					case "Nike +":
+						id_marca=1;
+						break;
+						
+					case "Jordan":
+						id_marca=2;
+						break;
+						
+					case "Outra":
+						id_marca=3;
+						break;
+				
+				}
+				artigo.setID_esporte(id_esporte);
+				artigo.setPreco_art(Double.parseDouble(editaArtigo.getTxtPreco().getText()));
+				artigo.setTamanho_art(editaArtigo.getTxtTamanho().getText());
+				artigo.setCor_art(editaArtigo.getTxtCor().getText());
+				artigo.setID_marca(id_marca);
+				
+				
+				artigo.update();
+				
+				editaArtigo.getTxtCor().setText("");
+				editaArtigo.getTxtDescricao().setText("");
+				editaArtigo.getTxtPesquisa().setText("");
+				editaArtigo.getTxtPreco().setText("");
+				editaArtigo.getTxtTamanho().setText("");
+				editaArtigo.getRdbtnFeminino().setSelected(false);
+				editaArtigo.getRdbtnMasculino().setSelected(false);
+				editaArtigo.getCmbbxEsporte().setSelectedIndex(0);
+				editaArtigo.getCmbbxMarca().setSelectedIndex(0);
 			}
-			artigo.setID_esporte(id_esporte);
-			artigo.setPreco_art(Double.parseDouble(editaArtigo.getTxtPreco().getText()));
-			artigo.setTamanho_art(editaArtigo.getTxtTamanho().getText());
-			artigo.setCor_art(editaArtigo.getTxtCor().getText());
-			artigo.setID_marca(id_marca);
 			
-			
-			artigo.update();
 		}
 		
 		if (event.getActionCommand() == "SAIR") 
@@ -161,6 +194,15 @@ public class ListenerEditArtigDesport implements ActionListener
 			editaArtigo.dispose();
 		}
 		
+		if (event.getActionCommand() == "F") 
+		{
+			editaArtigo.getRdbtnMasculino().setSelected(false);
+		}
+		
+		if (event.getActionCommand() == "M") 
+		{
+			editaArtigo.getRdbtnFeminino().setSelected(false);
+		}
 		
 	}
 

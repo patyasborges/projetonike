@@ -2,6 +2,9 @@ package br.inatel.ec206.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
 import br.inatel.ec206.model.ArtigosDesportivosDAO;
 import br.inatel.ec206.view.CadastroArtigDesportView;
 
@@ -32,7 +35,14 @@ public class ListenerCadArtigDesport implements ActionListener
 				esporte=cadastroArtigo.getCmbbxEsporte().getSelectedItem().toString();
 				marca =cadastroArtigo.getCmbbxMarca().getSelectedItem().toString();
 				
-
+				if (cadastroArtigo.getTxtDescricao().getText().equals("") || cadastroArtigo.getTxtPreco().getText().equals("") || cadastroArtigo.getTxtTamanho().getText().equals("") || cadastroArtigo.getTxtCor().getText().equals("")
+						|| (!cadastroArtigo.getRdbtnFeminino().isSelected() && !cadastroArtigo.getRdbtnMasculino().isSelected()) 
+						|| esporte.equals("") || marca.equals("")) 
+				{
+					JOptionPane.showMessageDialog(null, "Digite os Dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
+				} 
+				else
+				{
 					ArtigosDesportivosDAO artigos = new ArtigosDesportivosDAO();
 
 					artigos.setDescricao_art(cadastroArtigo.getTxtDescricao().getText());
@@ -99,14 +109,26 @@ public class ListenerCadArtigDesport implements ActionListener
 					cadastroArtigo.getTxtPreco().setText("");
 					cadastroArtigo.getTxtTamanho().setText("");
 					cadastroArtigo.getTxtCor().setText("");
-					
-
+					cadastroArtigo.getCmbbxEsporte().setSelectedIndex(0);
+					cadastroArtigo.getCmbbxMarca().setSelectedIndex(0);
+					cadastroArtigo.getRdbtnFeminino().setSelected(false);
+					cadastroArtigo.getRdbtnMasculino().setSelected(false);
 				}
-
-			
+			}
+						
 			if (event.getActionCommand() == "SAIR")
 			{
 				cadastroArtigo.dispose();
+			}
+			
+			if (event.getActionCommand() == "F")
+			{
+				cadastroArtigo.getRdbtnMasculino().setSelected(false);
+			}
+			
+			if (event.getActionCommand() == "M")
+			{
+				cadastroArtigo.getRdbtnFeminino().setSelected(false);
 			}
 		}
 }

@@ -150,14 +150,20 @@ public class CadastroUsuarioView extends JFrame
 	public JRadioButton getRdbtnCliente() {
 		if (rdbtnCliente == null) {
 			rdbtnCliente = new JRadioButton("Cliente");
+			rdbtnCliente.setActionCommand("CLI");
 			rdbtnCliente.setBounds(15, 204, 81, 29);
+			rdbtnCliente.addActionListener(listener);
+			
 		}
 		return rdbtnCliente;
 	}
 	public JRadioButton getRdbtnAdministrador() {
 		if (rdbtnAdministrador == null) {
 			rdbtnAdministrador = new JRadioButton("Administrador");
+			rdbtnAdministrador.setActionCommand("ADM");
 			rdbtnAdministrador.setBounds(101, 204, 133, 29);
+			rdbtnAdministrador.addActionListener(listener);
+			
 		}
 		return rdbtnAdministrador;
 	}
