@@ -69,19 +69,27 @@ public class CadastroMarcaView extends JFrame {
 	}
 	private JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
-			btnCadastrar = new JButton("Cadastrar");
+			btnCadastrar = new JButton("");
+			btnCadastrar.setIcon(new ImageIcon(CadastroMarcaView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
 			btnCadastrar.setActionCommand("CADASTRAR");
-			btnCadastrar.setBounds(114, 313, 115, 29);
+			btnCadastrar.setBounds(68, 285, 161, 57);
 			btnCadastrar.addActionListener(listener);
+			btnCadastrar.setOpaque(false);
+			btnCadastrar.setContentAreaFilled(false);
+			btnCadastrar.setBorderPainted(false);
 		}
 		return btnCadastrar;
 	}
 	private JButton getBtnSair() {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
+			btnSair.setIcon(new ImageIcon(CadastroMarcaView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(306, 313, 115, 29);
+			btnSair.setBounds(306, 285, 115, 57);
 			btnSair.addActionListener(listener);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 		}
 		return btnSair;
 	}

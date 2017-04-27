@@ -96,8 +96,12 @@ public class CadastroUsuarioView extends JFrame
 	public JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton("Cadastrar");
+			btnCadastrar.setIcon(new ImageIcon(CadastroUsuarioView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
 			btnCadastrar.setActionCommand("CAD");
-			btnCadastrar.setBounds(101, 445, 115, 29);
+			btnCadastrar.setBounds(47, 417, 169, 57);
+			btnCadastrar.setOpaque(false);
+			btnCadastrar.setContentAreaFilled(false);
+			btnCadastrar.setBorderPainted(false);
 			
 			btnCadastrar.addActionListener(listener);
 		}
@@ -106,8 +110,12 @@ public class CadastroUsuarioView extends JFrame
 	public JButton getBtnSair() {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
+			btnSair.setIcon(new ImageIcon(CadastroUsuarioView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(277, 445, 115, 29);
+			btnSair.setBounds(277, 417, 115, 57);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 			
 			btnSair.addActionListener(listener);
 		}

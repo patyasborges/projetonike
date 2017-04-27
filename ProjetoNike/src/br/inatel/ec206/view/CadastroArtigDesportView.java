@@ -133,9 +133,12 @@ public class CadastroArtigDesportView extends JFrame {
 	private JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton("Cadastrar");
+			btnCadastrar.setIcon(new ImageIcon(CadastroArtigDesportView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
 			btnCadastrar.setActionCommand("CADASTRAR");
-			btnCadastrar.setBounds(85, 474, 115, 29);
-			
+			btnCadastrar.setBounds(25, 442, 175, 61);
+			btnCadastrar.setOpaque(false);
+			btnCadastrar.setContentAreaFilled(false);
+			btnCadastrar.setBorderPainted(false);
 			btnCadastrar.addActionListener(listener);
 		}
 		return btnCadastrar;
@@ -143,8 +146,12 @@ public class CadastroArtigDesportView extends JFrame {
 	private JButton getBtnSair() {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
+			btnSair.setIcon(new ImageIcon(CadastroArtigDesportView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(249, 474, 115, 29);
+			btnSair.setBounds(235, 456, 129, 47);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 			
 			btnSair.addActionListener(listener);
 		}

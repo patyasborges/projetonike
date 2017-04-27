@@ -87,9 +87,9 @@ public class CadastroVestuarioView extends JFrame {
 	private JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton("");
-			btnCadastrar.setIcon(new ImageIcon(CadastroVestuarioView.class.getResource("/br/inatel/ec206/imagens/addBotao.png")));
+			btnCadastrar.setIcon(new ImageIcon(CadastroVestuarioView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
 			btnCadastrar.setActionCommand("CADASTRAR");
-			btnCadastrar.setBounds(59, 448, 115, 69);
+			btnCadastrar.setBounds(118, 458, 138, 69);
 			btnCadastrar.addActionListener(listener);
 			btnCadastrar.setOpaque(false);
 			btnCadastrar.setContentAreaFilled(false);
@@ -100,9 +100,13 @@ public class CadastroVestuarioView extends JFrame {
 	private JButton getBtnSair() {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
+			btnSair.setIcon(new ImageIcon(CadastroVestuarioView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(244, 488, 115, 29);
+			btnSair.setBounds(326, 479, 115, 48);
 			btnSair.addActionListener(listener);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 		}
 		return btnSair;
 	}

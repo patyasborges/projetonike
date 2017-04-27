@@ -81,10 +81,14 @@ public class DeletaUsuarioView extends JFrame {
 	}
 	public JButton getBtnPesquisar() {
 		if (btnPesquisar == null) {
-			btnPesquisar = new JButton("Pesquisar");
+			btnPesquisar = new JButton("");
+			btnPesquisar.setIcon(new ImageIcon(DeletaUsuarioView.class.getResource("/br/inatel/ec206/imagens/pesquisarBranco.png")));
 			btnPesquisar.setActionCommand("PESQUISAR");
-			btnPesquisar.setBounds(444, 151, 115, 29);
+			btnPesquisar.setBounds(448, 124, 115, 87);
 			btnPesquisar.addActionListener(listener);
+			btnPesquisar.setOpaque(false);
+			btnPesquisar.setContentAreaFilled(false);
+			btnPesquisar.setBorderPainted(false);
 		}
 		return btnPesquisar;
 	}
@@ -127,9 +131,9 @@ public class DeletaUsuarioView extends JFrame {
 	private JButton getBtnDeletar() {
 		if (btnDeletar == null) {
 			btnDeletar = new JButton("Deletar");
-			btnDeletar.setIcon(new ImageIcon(DeletaUsuarioView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
+			btnDeletar.setIcon(new ImageIcon(DeletaUsuarioView.class.getResource("/br/inatel/ec206/imagens/Deletarbranco.png")));
 			btnDeletar.setActionCommand("DELETAR");
-			btnDeletar.setBounds(36, 457, 168, 59);
+			btnDeletar.setBounds(36, 457, 146, 59);
 			btnDeletar.addActionListener(listener);
 			btnDeletar.setOpaque(false);
 			btnDeletar.setContentAreaFilled(false);
@@ -140,10 +144,14 @@ public class DeletaUsuarioView extends JFrame {
 	}
 	private JButton getBtnSair() {
 		if (btnSair == null) {
-			btnSair = new JButton("Sair");
+			btnSair = new JButton("");
+			btnSair.setIcon(new ImageIcon(DeletaUsuarioView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(286, 472, 115, 29);
+			btnSair.setBounds(286, 442, 115, 59);
 			btnSair.addActionListener(listener);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 		}
 		return btnSair;
 	}

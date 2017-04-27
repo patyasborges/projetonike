@@ -79,35 +79,47 @@ public class DeletaArtigDesportView extends JFrame {
 	}
 	private JButton getBtnDeletar() {
 		if (btnDeletar == null) {
-			btnDeletar = new JButton("Deletar");
+			btnDeletar = new JButton("");
+			btnDeletar.setIcon(new ImageIcon(DeletaArtigDesportView.class.getResource("/br/inatel/ec206/imagens/Deletarbranco.png")));
 			btnDeletar.setActionCommand("DELETAR");
-			btnDeletar.setBounds(95, 500, 115, 29);
+			btnDeletar.setBounds(95, 488, 115, 41);
 			btnDeletar.addActionListener(listener);
+			btnDeletar.setOpaque(false);
+			btnDeletar.setContentAreaFilled(false);
+			btnDeletar.setBorderPainted(false);
 		}
 		return btnDeletar;
 	}
 	private JButton getBtnSair() {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
+			btnSair.setIcon(new ImageIcon(DeletaArtigDesportView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(294, 500, 115, 29);
+			btnSair.setBounds(294, 476, 115, 53);
 			btnSair.addActionListener(listener);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 		}
 		return btnSair;
 	}
 	private JButton getBtnPesquisar() {
 		if (btnPesquisar == null) {
-			btnPesquisar = new JButton("Pesquisar");
+			btnPesquisar = new JButton("");
+			btnPesquisar.setIcon(new ImageIcon(DeletaArtigDesportView.class.getResource("/br/inatel/ec206/imagens/pesquisarBranco.png")));
 			btnPesquisar.setActionCommand("PESQUISAR");
-			btnPesquisar.setBounds(401, 28, 115, 29);
+			btnPesquisar.setBounds(349, 100, 146, 90);
 			btnPesquisar.addActionListener(listener);
+			btnPesquisar.setOpaque(false);
+			btnPesquisar.setContentAreaFilled(false);
+			btnPesquisar.setBorderPainted(false);
 		}
 		return btnPesquisar;
 	}
 	public JTextField getTxtPesquisa() {
 		if (txtPesquisa == null) {
 			txtPesquisa = new JTextField();
-			txtPesquisa.setBounds(149, 29, 146, 26);
+			txtPesquisa.setBounds(188, 130, 146, 26);
 			txtPesquisa.setColumns(10);
 		}
 		return txtPesquisa;

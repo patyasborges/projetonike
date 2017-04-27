@@ -98,19 +98,27 @@ public class DeletaVestuarioView extends JFrame {
 	}
 	private JButton getBtnExcluir() {
 		if (btnExcluir == null) {
-			btnExcluir = new JButton("Excluir");
+			btnExcluir = new JButton("");
+			btnExcluir.setIcon(new ImageIcon(DeletaVestuarioView.class.getResource("/br/inatel/ec206/imagens/Deletarbranco.png")));
 			btnExcluir.setActionCommand("EXCLUIR");
 			btnExcluir.setBounds(149, 474, 115, 29);
 			btnExcluir.addActionListener(listener);
+			btnExcluir.setOpaque(false);
+			btnExcluir.setContentAreaFilled(false);
+			btnExcluir.setBorderPainted(false);
 		}
 		return btnExcluir;
 	}
 	private JButton getBtnSair() {
 		if (btnSair == null) {
-			btnSair = new JButton("Sair");
+			btnSair = new JButton("");
+			btnSair.setIcon(new ImageIcon(DeletaVestuarioView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(356, 474, 115, 29);
+			btnSair.setBounds(356, 455, 115, 48);
 			btnSair.addActionListener(listener);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 		}
 		return btnSair;
 	}

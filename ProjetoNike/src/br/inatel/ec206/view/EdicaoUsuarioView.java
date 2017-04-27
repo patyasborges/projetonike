@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class EdicaoUsuarioView extends JFrame {
 
@@ -22,11 +24,6 @@ public class EdicaoUsuarioView extends JFrame {
 	private static final long serialVersionUID = 3622373046369348333L;
 	
 	private JPanel contentPane;
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1;
-	private JLabel lblNewLabel_2;
-	private JLabel lblNewLabel_3;
-	private JLabel lblNewLabel_4;
 	public JTextField txtPesquisar;
 	public JTextField txtNome;
 	private JTextField txtDataNascimento;
@@ -40,7 +37,7 @@ public class EdicaoUsuarioView extends JFrame {
 	
 	ListenerEditUsuario listener = ListenerEditUsuario.getInstance(this);
 	private JTextField txtSenha;
-	private JLabel lblNewLabel_5;
+	private JLabel lblNewLabel_6;
 	
 	/**
 	 * Launch the application.
@@ -64,16 +61,11 @@ public class EdicaoUsuarioView extends JFrame {
 	public EdicaoUsuarioView() {
 		setTitle("Editar Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 346);
+		setBounds(100, 100, 842, 591);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(getLblNewLabel());
-		contentPane.add(getLblNewLabel_1());
-		contentPane.add(getLblNewLabel_2());
-		contentPane.add(getLblNewLabel_3());
-		contentPane.add(getLblNewLabel_4());
 		contentPane.add(getTxtPesquisar());
 		contentPane.add(getTxtNome());
 		contentPane.add(getTxtDataNascimento());
@@ -84,48 +76,12 @@ public class EdicaoUsuarioView extends JFrame {
 		contentPane.add(getBtnEditar());
 		contentPane.add(getBtnSair());
 		contentPane.add(getTxtSenha());
-		contentPane.add(getLblNewLabel_5());
-	}
-
-	private JLabel getLblNewLabel() {
-		if (lblNewLabel == null) {
-			lblNewLabel = new JLabel("Nome:");
-			lblNewLabel.setBounds(15, 16, 69, 20);
-		}
-		return lblNewLabel;
-	}
-	private JLabel getLblNewLabel_1() {
-		if (lblNewLabel_1 == null) {
-			lblNewLabel_1 = new JLabel("Nome:");
-			lblNewLabel_1.setBounds(15, 71, 69, 20);
-		}
-		return lblNewLabel_1;
-	}
-	private JLabel getLblNewLabel_2() {
-		if (lblNewLabel_2 == null) {
-			lblNewLabel_2 = new JLabel("Data de Nascimento:");
-			lblNewLabel_2.setBounds(15, 110, 152, 20);
-		}
-		return lblNewLabel_2;
-	}
-	private JLabel getLblNewLabel_3() {
-		if (lblNewLabel_3 == null) {
-			lblNewLabel_3 = new JLabel("E-mail:");
-			lblNewLabel_3.setBounds(15, 146, 69, 20);
-		}
-		return lblNewLabel_3;
-	}
-	private JLabel getLblNewLabel_4() {
-		if (lblNewLabel_4 == null) {
-			lblNewLabel_4 = new JLabel("Tipo:");
-			lblNewLabel_4.setBounds(15, 182, 69, 20);
-		}
-		return lblNewLabel_4;
+		contentPane.add(getLblNewLabel_6());
 	}
 	public JTextField getTxtPesquisar() {
 		if (txtPesquisar == null) {
 			txtPesquisar = new JTextField();
-			txtPesquisar.setBounds(80, 13, 176, 26);
+			txtPesquisar.setBounds(255, 134, 256, 26);
 			txtPesquisar.setColumns(10);
 		}
 		return txtPesquisar;
@@ -133,7 +89,7 @@ public class EdicaoUsuarioView extends JFrame {
 	public JTextField getTxtNome() {
 		if (txtNome == null) {
 			txtNome = new JTextField();
-			txtNome.setBounds(99, 68, 146, 26);
+			txtNome.setBounds(255, 204, 256, 26);
 			txtNome.setColumns(10);
 		}
 		return txtNome;
@@ -141,7 +97,7 @@ public class EdicaoUsuarioView extends JFrame {
 	public JTextField getTxtDataNascimento() {
 		if (txtDataNascimento == null) {
 			txtDataNascimento = new JTextField();
-			txtDataNascimento.setBounds(167, 107, 78, 26);
+			txtDataNascimento.setBounds(255, 246, 256, 26);
 			txtDataNascimento.setColumns(10);
 		}
 		return txtDataNascimento;
@@ -149,22 +105,24 @@ public class EdicaoUsuarioView extends JFrame {
 	public JTextField getTxtEmail() {
 		if (txtEmail == null) {
 			txtEmail = new JTextField();
-			txtEmail.setBounds(99, 143, 146, 26);
+			txtEmail.setBounds(255, 288, 256, 26);
 			txtEmail.setColumns(10);
 		}
 		return txtEmail;
 	}
 	public JRadioButton getRdbtnCliente() {
 		if (rdbtnCliente == null) {
-			rdbtnCliente = new JRadioButton("Cliente");
-			rdbtnCliente.setBounds(15, 203, 90, 29);
+			rdbtnCliente = new JRadioButton("");
+			rdbtnCliente.setBackground(Color.BLACK);
+			rdbtnCliente.setBounds(138, 326, 29, 29);
 		}
 		return rdbtnCliente;
 	}
 	public JRadioButton getRdbtnAdministrador() {
 		if (rdbtnAdministrador == null) {
-			rdbtnAdministrador = new JRadioButton("Administrador");
-			rdbtnAdministrador.setBounds(110, 203, 155, 29);
+			rdbtnAdministrador = new JRadioButton("");
+			rdbtnAdministrador.setBackground(Color.BLACK);
+			rdbtnAdministrador.setBounds(271, 326, 29, 29);
 		}
 		return rdbtnAdministrador;
 	}
@@ -172,7 +130,7 @@ public class EdicaoUsuarioView extends JFrame {
 		if (btnPesquisar == null) {
 			btnPesquisar = new JButton("Pesquisar");
 			btnPesquisar.setActionCommand("PESQUISAR");
-			btnPesquisar.setBounds(271, 12, 115, 29);
+			btnPesquisar.setBounds(539, 133, 115, 29);
 			btnPesquisar.addActionListener(listener);
 		}
 		return btnPesquisar;
@@ -181,7 +139,7 @@ public class EdicaoUsuarioView extends JFrame {
 		if (btnEditar == null) {
 			btnEditar = new JButton("Editar");
 			btnEditar.setActionCommand("EDITAR");
-			btnEditar.setBounds(286, 89, 115, 29);
+			btnEditar.setBounds(95, 453, 115, 29);
 			btnEditar.addActionListener(listener);
 		}
 		return btnEditar;
@@ -190,7 +148,7 @@ public class EdicaoUsuarioView extends JFrame {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(286, 142, 115, 29);
+			btnSair.setBounds(255, 453, 115, 29);
 			btnSair.addActionListener(listener);
 		}
 		return btnSair;
@@ -198,16 +156,17 @@ public class EdicaoUsuarioView extends JFrame {
 	public JTextField getTxtSenha() {
 		if (txtSenha == null) {
 			txtSenha = new JTextField();
-			txtSenha.setBounds(99, 248, 146, 26);
+			txtSenha.setBounds(255, 381, 256, 26);
 			txtSenha.setColumns(10);
 		}
 		return txtSenha;
 	}
-	private JLabel getLblNewLabel_5() {
-		if (lblNewLabel_5 == null) {
-			lblNewLabel_5 = new JLabel("Senha:");
-			lblNewLabel_5.setBounds(15, 251, 69, 20);
+	private JLabel getLblNewLabel_6() {
+		if (lblNewLabel_6 == null) {
+			lblNewLabel_6 = new JLabel("");
+			lblNewLabel_6.setIcon(new ImageIcon(EdicaoUsuarioView.class.getResource("/br/inatel/ec206/imagens/edicaoUsuarios.png")));
+			lblNewLabel_6.setBounds(0, 0, 820, 535);
 		}
-		return lblNewLabel_5;
+		return lblNewLabel_6;
 	}
 }
