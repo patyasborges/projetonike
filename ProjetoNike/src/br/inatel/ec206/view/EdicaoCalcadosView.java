@@ -11,9 +11,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import br.inatel.ec206.controller.ListenerEditCalcado;
+import javax.swing.JRadioButton;
 
 public class EdicaoCalcadosView extends JFrame {
-	
+
 	ListenerEditCalcado listener = ListenerEditCalcado.getInstance(this);
 
 	private static final long serialVersionUID = 1L;
@@ -30,6 +31,9 @@ public class EdicaoCalcadosView extends JFrame {
 	private JButton cancelar;
 	private JTextField pesquisaCal;
 	private JButton pesquisar;
+	private JRadioButton rdbtnNewRadioButton;
+	private JRadioButton rdbtnNewRadioButton_1;
+
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -46,7 +50,7 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getDescricao() {
 		descricaoCal = new JTextField();
-		descricaoCal.setBounds(155, 156, 130, 20);
+		descricaoCal.setBounds(166, 207, 130, 20);
 		contentPane.add(descricaoCal);
 		descricaoCal.setColumns(10);
 		return descricaoCal;
@@ -54,7 +58,7 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getGenero() {
 		generoCal = new JTextField();
-		generoCal.setBounds(155, 202, 130, 20);
+		generoCal.setBounds(166, 284, 130, 20);
 		contentPane.add(generoCal);
 		generoCal.setColumns(10);
 		return generoCal;
@@ -62,7 +66,7 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getTipo() {
 		tipoCal = new JTextField();
-		tipoCal.setBounds(155, 249, 130, 20);
+		tipoCal.setBounds(166, 326, 130, 20);
 		contentPane.add(tipoCal);
 		tipoCal.setColumns(10);
 		return tipoCal;
@@ -70,7 +74,7 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getPreco() {
 		precoCal = new JTextField();
-		precoCal.setBounds(155, 287, 130, 20);
+		precoCal.setBounds(166, 357, 130, 20);
 		contentPane.add(precoCal);
 		precoCal.setColumns(10);
 
@@ -79,7 +83,7 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getTamanho() {
 		tamanhoCal = new JTextField();
-		tamanhoCal.setBounds(155, 330, 130, 20);
+		tamanhoCal.setBounds(166, 401, 130, 20);
 		contentPane.add(tamanhoCal);
 		tamanhoCal.setColumns(10);
 
@@ -88,7 +92,7 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getCor() {
 		corCal = new JTextField();
-		corCal.setBounds(155, 377, 130, 20);
+		corCal.setBounds(166, 442, 130, 20);
 		contentPane.add(corCal);
 		corCal.setColumns(10);
 
@@ -99,8 +103,8 @@ public class EdicaoCalcadosView extends JFrame {
 		JButton ok = new JButton("");
 		ok.setBackground(new Color(0, 0, 0, 0));
 
-		ok.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\botao_add_laranja120.png"));
-		ok.setBounds(132, 463, 153, 53);
+		ok.setIcon(new ImageIcon(EdicaoCalcadosView.class.getResource("/br/inatel/ec206/imagens/botao_add_laranja120.png")));
+		ok.setBounds(155, 473, 153, 53);
 		contentPane.add(ok);
 		ok.setOpaque(false);
 		ok.setContentAreaFilled(false);
@@ -110,8 +114,8 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JButton getcancelar() {
 		cancelar = new JButton("");
-		cancelar.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\x.png"));
-		cancelar.setBounds(21, 463, 66, 53);
+		cancelar.setIcon(new ImageIcon(EdicaoCalcadosView.class.getResource("/br/inatel/ec206/imagens/x.png")));
+		cancelar.setBounds(29, 473, 66, 53);
 		cancelar.setOpaque(false);
 		cancelar.setContentAreaFilled(false);
 		cancelar.setBorderPainted(false);
@@ -124,7 +128,7 @@ public class EdicaoCalcadosView extends JFrame {
 	public JButton getpesquisar() {
 		pesquisar = new JButton("");
 		pesquisar.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\pesquisar.png"));
-		pesquisar.setBounds(638, 157, 111, 78);
+		pesquisar.setBounds(307, 127, 111, 78);
 		contentPane.add(pesquisar);
 
 		pesquisar.setOpaque(false);
@@ -136,18 +140,41 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getPesquisaCal() {
 		pesquisaCal = new JTextField();
-		pesquisaCal.setBounds(628, 132, 135, 20);
+		pesquisaCal.setBounds(166, 141, 130, 20);
 		contentPane.add(pesquisaCal);
 		pesquisaCal.setColumns(10);
 		return pesquisaCal;
 	}
 
-	public EdicaoCalcadosView() {
+	private JRadioButton getRdbtnNewRadioButton() {
+		if (rdbtnNewRadioButton == null) {
+			rdbtnNewRadioButton = new JRadioButton("");
+			rdbtnNewRadioButton.setBounds(192, 247, 26, 23);
 
-		
+			rdbtnNewRadioButton.setOpaque(false);
+			rdbtnNewRadioButton.setContentAreaFilled(false);
+			rdbtnNewRadioButton.setBorderPainted(false);
+		}
+		return rdbtnNewRadioButton;
+	}
+
+	private JRadioButton getRdbtnNewRadioButton_1() {
+		if (rdbtnNewRadioButton_1 == null) {
+			rdbtnNewRadioButton_1 = new JRadioButton("");
+			rdbtnNewRadioButton_1.setBounds(257, 247, 26, 23);
+
+			rdbtnNewRadioButton_1.setOpaque(false);
+			rdbtnNewRadioButton_1.setContentAreaFilled(false);
+			rdbtnNewRadioButton_1.setBorderPainted(false);
+		}
+		return rdbtnNewRadioButton_1;
+	}
+
+	public EdicaoCalcadosView() {
+		setTitle("Editar Calcados");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 856, 587);
+		setBounds(100, 100, 856, 591);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -163,10 +190,13 @@ public class EdicaoCalcadosView extends JFrame {
 		contentPane.add(getcancelar());
 		contentPane.add(getpesquisar());
 		contentPane.add(getPesquisaCal());
+		contentPane.add(getRdbtnNewRadioButton());
+		contentPane.add(getRdbtnNewRadioButton_1());
 
 		JLabel background = new JLabel("");
-		background.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\edicao.png"));
-		background.setBounds(0, 0, 840, 550);
+		background.setIcon(
+				new ImageIcon(EdicaoCalcadosView.class.getResource("/br/inatel/ec206/imagens/edicaoCalcado.png")));
+		background.setBounds(0, 0, 850, 550);
 		contentPane.add(background);
 		contentPane.repaint();
 	}

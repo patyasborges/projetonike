@@ -26,8 +26,7 @@ public class ListenerCadCalcado implements ActionListener {
 		if (event.getActionCommand() == "CADASTRAR") {
 
 			if ((cadastroCalcado.getDescricao().getText().equals(""))
-					|| (cadastroCalcado.getGenero().getText().equals(""))
-					|| (cadastroCalcado.getTipo().getText().equals(""))
+					|| (cadastroCalcado.getEsporteCal().getSelectedItem().toString().equals(""))
 					|| (cadastroCalcado.getPreco().getText().equals(""))
 					|| (cadastroCalcado.getTamanho().getText().equals(""))
 					|| (cadastroCalcado.getCor().getText().equals(""))) {
@@ -37,8 +36,8 @@ public class ListenerCadCalcado implements ActionListener {
 				CalcadosDAO calcado = new CalcadosDAO();
 
 				calcado.setDescricao_calc(cadastroCalcado.getDescricao().getText());
-				calcado.setGenero_calc(cadastroCalcado.getGenero().getText());
-				calcado.setTipo_calc(cadastroCalcado.getTipo().getText());
+				//calcado.setGenero_calc(cadastroCalcado.getGenero().getText());
+				calcado.setTipo_calc(cadastroCalcado.getEsporteCal().getSelectedItem().toString());
 
 				calcado.setPreco_calc(Double.parseDouble(cadastroCalcado.getPreco().getText())); // double
 
@@ -49,8 +48,9 @@ public class ListenerCadCalcado implements ActionListener {
 				calcado.armazenaNovosDados();
 
 				cadastroCalcado.getDescricao().setText("");
-				cadastroCalcado.getGenero().setText("");
-				cadastroCalcado.getTipo().setText("");
+				cadastroCalcado.getMasclRadioButton().setSelected(false);
+				cadastroCalcado.getFemRadioButton().setSelected(false);
+				cadastroCalcado.getEsporteCal().setSelectedIndex(0);
 				cadastroCalcado.getPreco().setText("");
 				cadastroCalcado.getTamanho().setText("");
 				cadastroCalcado.getCor().setText("");

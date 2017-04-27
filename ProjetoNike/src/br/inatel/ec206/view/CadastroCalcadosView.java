@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 
 import br.inatel.ec206.controller.ListenerCadCalcado;
@@ -14,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 public class CadastroCalcadosView extends JFrame {
 
@@ -22,15 +24,12 @@ public class CadastroCalcadosView extends JFrame {
 	ListenerCadCalcado listener = ListenerCadCalcado.getInstance(this);
 
 	private JTextField descricaoCal;
-	private JTextField generoCal;
-	private JTextField tipoCal;
+	private JComboBox<String> EsporteCal;
+	private JComboBox<String> MarcaCal;
 	private JTextField precoCal;
 	private JTextField tamanhoCal;
 	private JTextField corCal;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,38 +47,43 @@ public class CadastroCalcadosView extends JFrame {
 		if (descricaoCal == null) {
 			descricaoCal = new JTextField();
 			descricaoCal.setBounds(169, 153, 113, 20);
-			// contentPane.add(descricaoCal);
+			
 			descricaoCal.setColumns(10);
 		}
 
 		return descricaoCal;
 	}
 
-	public JTextField getGenero() {
-		if (generoCal == null) {
-			generoCal = new JTextField();
-			generoCal.setBounds(169, 198, 113, 20);
-			// contentPane.add(generoCal);
-			generoCal.setColumns(10);
+	public JComboBox<String> getEsporteCal() {
+		if (EsporteCal == null) {
+			EsporteCal = new JComboBox<String>();
+			EsporteCal.setBounds(169, 247, 113, 20);
+			
+			EsporteCal.addItem("");
+			EsporteCal.addItem("Futebol");
+			EsporteCal.addItem("Basquete");
+			EsporteCal.addItem("Volei");
 		}
-		return generoCal;
+		return EsporteCal;
 	}
 
-	public JTextField getTipo() {
-		if (tipoCal == null) {
-			tipoCal = new JTextField();
-			tipoCal.setBounds(169, 247, 113, 20);
-			// contentPane.add(tipoCal);
-			tipoCal.setColumns(10);
+	public JComboBox<String> getMarcaCal() {
+		if (MarcaCal == null) {
+			MarcaCal = new JComboBox<String>();
+			MarcaCal.setBounds(169, 412, 113, 20);
+			MarcaCal.addItem("");
+			MarcaCal.addItem("Nike +");
+			MarcaCal.addItem("Jordan");
+			MarcaCal.addItem("Outra");
 		}
-		return tipoCal;
+		return MarcaCal;
 	}
 
 	public JTextField getPreco() {
 		if (precoCal == null) {
 			precoCal = new JTextField();
-			precoCal.setBounds(169, 292, 113, 20);
-			// contentPane.add(precoCal);
+			precoCal.setBounds(169, 286, 113, 20);
+			
 			precoCal.setColumns(10);
 		}
 		return precoCal;
@@ -89,7 +93,7 @@ public class CadastroCalcadosView extends JFrame {
 		if (tamanhoCal == null) {
 			tamanhoCal = new JTextField();
 			tamanhoCal.setBounds(169, 333, 113, 20);
-			// contentPane.add(tamanhoCal);
+			
 			tamanhoCal.setColumns(10);
 		}
 		return tamanhoCal;
@@ -99,7 +103,7 @@ public class CadastroCalcadosView extends JFrame {
 		if (corCal == null) {
 			corCal = new JTextField();
 			corCal.setBounds(169, 373, 113, 20);
-			// contentPane.add(corCal);
+			
 			corCal.setColumns(10);
 		}
 		return corCal;
@@ -107,9 +111,9 @@ public class CadastroCalcadosView extends JFrame {
 
 	public JButton getOk() {
 		JButton ok = new JButton("");
-		ok.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\botao_add_laranja120.png"));
+		ok.setIcon(new ImageIcon(CadastroCalcadosView.class.getResource("/br/inatel/ec206/imagens/botao_add_laranja120.png")));
 		ok.setBounds(138, 443, 153, 53);
-		// contentPane.add(ok);
+		
 
 		ok.setOpaque(false);
 		ok.setContentAreaFilled(false);
@@ -123,9 +127,9 @@ public class CadastroCalcadosView extends JFrame {
 
 	public JButton getcancelar() {
 		JButton cancelar = new JButton("");
-		cancelar.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\x.png"));
+		cancelar.setIcon(new ImageIcon(CadastroCalcadosView.class.getResource("/br/inatel/ec206/imagens/x.png")));
 		cancelar.setBounds(22, 456, 89, 40);
-		// contentPane.add(cancelar);
+		
 		cancelar.setOpaque(false);
 		cancelar.setContentAreaFilled(false);
 		cancelar.setBorderPainted(false);
@@ -136,11 +140,33 @@ public class CadastroCalcadosView extends JFrame {
 		return cancelar;
 	}
 
+	public JRadioButton getFemRadioButton() {
+		JRadioButton FemRadioButton = new JRadioButton("");
+		FemRadioButton.setBounds(193, 198, 29, 23);
+
+		FemRadioButton.setOpaque(false);
+		FemRadioButton.setContentAreaFilled(false);
+		FemRadioButton.setBorderPainted(false);
+		return FemRadioButton;
+	}
+
+	public JRadioButton getMasclRadioButton() {
+		JRadioButton MasclRadioButton = new JRadioButton("");
+		MasclRadioButton.setBounds(260, 198, 31, 23);
+
+		MasclRadioButton.setOpaque(false);
+		MasclRadioButton.setContentAreaFilled(false);
+		MasclRadioButton.setBorderPainted(false);
+
+		return MasclRadioButton;
+	}
+
 	public CadastroCalcadosView() {
+		setTitle("Cadastro de Calcados");
 
 		JPanel contentPane = new JPanel();
 		contentPane.setBounds(0, 0, 784, 545);
-		getContentPane().add(contentPane);
+
 		contentPane.setLayout(null);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -152,20 +178,21 @@ public class CadastroCalcadosView extends JFrame {
 		getContentPane().setLayout(null);
 
 		contentPane.add(getDescricao());
-		contentPane.add(getGenero());
-		contentPane.add(getTipo());
+		contentPane.add(getEsporteCal());
 		contentPane.add(getPreco());
 		contentPane.add(getTamanho());
 		contentPane.add(getCor());
 		contentPane.add(getOk());
 		contentPane.add(getcancelar());
+		contentPane.add(getMasclRadioButton());
+		contentPane.add(getFemRadioButton());
+		contentPane.add(getMarcaCal());
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\cadastro.png"));
+		lblNewLabel.setIcon(new ImageIcon(CadastroCalcadosView.class.getResource("/br/inatel/ec206/imagens/cadastroCalcado.png")));
 		lblNewLabel.setBounds(0, 0, 784, 545);
 		contentPane.add(lblNewLabel);
 
 		contentPane.repaint();
 	}
-
 }

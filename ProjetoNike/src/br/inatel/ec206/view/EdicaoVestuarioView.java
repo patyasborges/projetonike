@@ -161,19 +161,27 @@ public class EdicaoVestuarioView extends JFrame {
 	}
 	private JButton getBtnEditar() {
 		if (btnEditar == null) {
-			btnEditar = new JButton("Editar");
+			btnEditar = new JButton("");
+			btnEditar.setIcon(new ImageIcon(EdicaoVestuarioView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
 			btnEditar.setActionCommand("EDITAR");
-			btnEditar.setBounds(104, 462, 115, 29);
+			btnEditar.setBounds(104, 462, 144, 62);
 			btnEditar.addActionListener(listener);
+			btnEditar.setOpaque(false);
+			btnEditar.setContentAreaFilled(false);
+			btnEditar.setBorderPainted(false);
 		}
 		return btnEditar;
 	}
 	private JButton getBtnSair() {
 		if (btnSair == null) {
 			btnSair = new JButton("Sair");
+			btnSair.setIcon(new ImageIcon(EdicaoVestuarioView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(334, 462, 115, 29);
+			btnSair.setBounds(334, 462, 115, 46);
 			btnSair.addActionListener(listener);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 		}
 		return btnSair;
 	}
@@ -188,7 +196,7 @@ public class EdicaoVestuarioView extends JFrame {
 	private JButton getBtnPesquisar() {
 		if (btnPesquisar == null) {
 			btnPesquisar = new JButton("");
-			btnPesquisar.setIcon(new ImageIcon(EdicaoVestuarioView.class.getResource("/br/inatel/ec206/imagens/pesquisaAzul.png")));
+			btnPesquisar.setIcon(new ImageIcon(EdicaoVestuarioView.class.getResource("/br/inatel/ec206/imagens/pesquisarBranco.png")));
 			btnPesquisar.setActionCommand("PESQUISAR");
 			btnPesquisar.setBounds(501, 101, 115, 93);
 			btnPesquisar.addActionListener(listener);

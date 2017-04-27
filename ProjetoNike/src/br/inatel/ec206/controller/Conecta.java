@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.swing.JOptionPane;
+
 public class Conecta
 {
 	    // Abre conexao com o Banco
@@ -27,6 +29,17 @@ public class Conecta
 		 String _user = "root";
 		 // Senha do Banco
 		 String _password = "root";
+		 
+		 public void alteraBanco(String sql){
+		  		
+		     try {
+		                _st = _con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+		                _rs = _st.executeQuery(sql); 
+		      		
+		      	} catch (SQLException ex) {
+		                JOptionPane.showMessageDialog(null,"Erro na consulta:\n Error: " + ex.getMessage());
+		            }
+		     }
 
 		 // (0) CONNECT: Metodo usado para abrir conexao com o banco.
 		 public void conectaBanco()

@@ -159,19 +159,27 @@ public class EdicaoArtigDesportView extends JFrame {
 	}
 	private JButton getBtnEditar() {
 		if (btnEditar == null) {
-			btnEditar = new JButton("Editar");
+			btnEditar = new JButton("");
+			btnEditar.setIcon(new ImageIcon(EdicaoArtigDesportView.class.getResource("/br/inatel/ec206/imagens/botaoBranco.png")));
 			btnEditar.setActionCommand("EDITAR");
-			btnEditar.setBounds(70, 501, 115, 29);
+			btnEditar.setBounds(15, 470, 170, 60);
 			btnEditar.addActionListener(listener);
+			btnEditar.setOpaque(false);
+			btnEditar.setContentAreaFilled(false);
+			btnEditar.setBorderPainted(false);
 		}
 		return btnEditar;
 	}
 	private JButton getBtnSair() {
 		if (btnSair == null) {
-			btnSair = new JButton("Sair");
+			btnSair = new JButton("");
+			btnSair.setIcon(new ImageIcon(EdicaoArtigDesportView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(239, 501, 115, 29);
+			btnSair.setBounds(239, 480, 115, 50);
 			btnSair.addActionListener(listener);
+			btnSair.setOpaque(false);
+			btnSair.setContentAreaFilled(false);
+			btnSair.setBorderPainted(false);
 		}
 		return btnSair;
 	}
@@ -185,10 +193,14 @@ public class EdicaoArtigDesportView extends JFrame {
 	}
 	private JButton getBtnPesquisar() {
 		if (btnPesquisar == null) {
-			btnPesquisar = new JButton("Pesquisar");
+			btnPesquisar = new JButton("");
+			btnPesquisar.setIcon(new ImageIcon(EdicaoArtigDesportView.class.getResource("/br/inatel/ec206/imagens/pesquisarBranco.png")));
 			btnPesquisar.setActionCommand("PESQUISAR");
-			btnPesquisar.setBounds(369, 118, 115, 29);
+			btnPesquisar.setBounds(369, 91, 115, 87);
 			btnPesquisar.addActionListener(listener);
+			btnPesquisar.setOpaque(false);
+			btnPesquisar.setContentAreaFilled(false);
+			btnPesquisar.setBorderPainted(false);
 		}
 		return btnPesquisar;
 	}
