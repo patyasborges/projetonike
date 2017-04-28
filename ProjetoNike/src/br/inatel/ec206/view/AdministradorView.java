@@ -87,6 +87,7 @@ public class AdministradorView extends JFrame {
 	private JMenuBar getMenuBar_1() {
 		if (menuBar == null) {
 			menuBar = new JMenuBar();
+			menuBar.setBackground(Color.BLACK);
 			menuBar.setBounds(0, 0, 823, 31);
 			menuBar.add(getMnCadastro());
 			menuBar.add(getMnEdicao());
