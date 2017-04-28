@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,8 +23,8 @@ public class EdicaoCalcadosView extends JFrame {
 	private JPanel contentPane;
 
 	private JTextField descricaoCal;
-	private JTextField generoCal;
-	private JTextField tipoCal;
+	private JComboBox<String> EsporteCal;
+	private JComboBox<String> MarcaCal;
 	private JTextField precoCal;
 	private JTextField tamanhoCal;
 	private JTextField corCal;
@@ -31,8 +32,7 @@ public class EdicaoCalcadosView extends JFrame {
 	private JButton cancelar;
 	private JTextField pesquisaCal;
 	private JButton pesquisar;
-	private JRadioButton rdbtnNewRadioButton;
-	private JRadioButton rdbtnNewRadioButton_1;
+
 
 
 	public static void main(String[] args) {
@@ -56,25 +56,43 @@ public class EdicaoCalcadosView extends JFrame {
 		return descricaoCal;
 	}
 
-	public JTextField getGenero() {
-		generoCal = new JTextField();
-		generoCal.setBounds(166, 284, 130, 20);
-		contentPane.add(generoCal);
-		generoCal.setColumns(10);
-		return generoCal;
+	public JRadioButton getFemRadioButton() {
+		JRadioButton FemRadioButton = new JRadioButton("");
+		FemRadioButton.setBounds(192, 247, 21, 23);
+
+		FemRadioButton.setOpaque(false);
+		FemRadioButton.setContentAreaFilled(false);
+		FemRadioButton.setBorderPainted(false);
+		return FemRadioButton;
 	}
 
-	public JTextField getTipo() {
-		tipoCal = new JTextField();
-		tipoCal.setBounds(166, 326, 130, 20);
-		contentPane.add(tipoCal);
-		tipoCal.setColumns(10);
-		return tipoCal;
+	public JRadioButton getMasclRadioButton() {
+		JRadioButton MasclRadioButton = new JRadioButton("");
+		MasclRadioButton.setBounds(259, 247, 22, 23);
+
+		MasclRadioButton.setOpaque(false);
+		MasclRadioButton.setContentAreaFilled(false);
+		MasclRadioButton.setBorderPainted(false);
+
+		return MasclRadioButton;
+	}
+
+	public JComboBox<String> getEsporteCal() {
+		if (EsporteCal == null) {
+			EsporteCal = new JComboBox<String>();
+			EsporteCal.setBounds(166, 277, 130, 20);
+			
+			EsporteCal.addItem("");
+			EsporteCal.addItem("Futebol");
+			EsporteCal.addItem("Basquete");
+			EsporteCal.addItem("Volei");
+		}
+		return EsporteCal;
 	}
 
 	public JTextField getPreco() {
 		precoCal = new JTextField();
-		precoCal.setBounds(166, 357, 130, 20);
+		precoCal.setBounds(166, 319, 130, 20);
 		contentPane.add(precoCal);
 		precoCal.setColumns(10);
 
@@ -83,7 +101,7 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getTamanho() {
 		tamanhoCal = new JTextField();
-		tamanhoCal.setBounds(166, 401, 130, 20);
+		tamanhoCal.setBounds(166, 359, 130, 20);
 		contentPane.add(tamanhoCal);
 		tamanhoCal.setColumns(10);
 
@@ -92,29 +110,44 @@ public class EdicaoCalcadosView extends JFrame {
 
 	public JTextField getCor() {
 		corCal = new JTextField();
-		corCal.setBounds(166, 442, 130, 20);
+		corCal.setBounds(166, 396, 130, 20);
 		contentPane.add(corCal);
 		corCal.setColumns(10);
 
 		return corCal;
+	}
+	public JComboBox<String> getMarcaCal() {
+		if (MarcaCal == null) {
+			MarcaCal = new JComboBox<String>();
+			MarcaCal.setBounds(166, 442, 130, 20);
+			MarcaCal.addItem("");
+			MarcaCal.addItem("Nike +");
+			MarcaCal.addItem("Jordan");
+			MarcaCal.addItem("Outra");
+		}
+		return MarcaCal;
 	}
 
 	public JButton getOk() {
 		JButton ok = new JButton("");
 		ok.setBackground(new Color(0, 0, 0, 0));
 
-		ok.setIcon(new ImageIcon(EdicaoCalcadosView.class.getResource("/br/inatel/ec206/imagens/botao_add_laranja120.png")));
+		ok.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\botao_add_laranja120.png"));
 		ok.setBounds(155, 473, 153, 53);
 		contentPane.add(ok);
 		ok.setOpaque(false);
 		ok.setContentAreaFilled(false);
 		ok.setBorderPainted(false);
+		
+
+		ok.setActionCommand("EDITAR");
+		ok.addActionListener(listener);
 		return ok;
 	}
 
 	public JButton getcancelar() {
 		cancelar = new JButton("");
-		cancelar.setIcon(new ImageIcon(EdicaoCalcadosView.class.getResource("/br/inatel/ec206/imagens/x.png")));
+		cancelar.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\x.png"));
 		cancelar.setBounds(29, 473, 66, 53);
 		cancelar.setOpaque(false);
 		cancelar.setContentAreaFilled(false);
@@ -134,6 +167,9 @@ public class EdicaoCalcadosView extends JFrame {
 		pesquisar.setOpaque(false);
 		pesquisar.setContentAreaFilled(false);
 		pesquisar.setBorderPainted(false);
+		
+		pesquisar.setActionCommand("PESQUISAR");
+		pesquisar.addActionListener(listener);
 
 		return pesquisar;
 	}
@@ -146,52 +182,29 @@ public class EdicaoCalcadosView extends JFrame {
 		return pesquisaCal;
 	}
 
-	private JRadioButton getRdbtnNewRadioButton() {
-		if (rdbtnNewRadioButton == null) {
-			rdbtnNewRadioButton = new JRadioButton("");
-			rdbtnNewRadioButton.setBounds(192, 247, 26, 23);
-
-			rdbtnNewRadioButton.setOpaque(false);
-			rdbtnNewRadioButton.setContentAreaFilled(false);
-			rdbtnNewRadioButton.setBorderPainted(false);
-		}
-		return rdbtnNewRadioButton;
-	}
-
-	private JRadioButton getRdbtnNewRadioButton_1() {
-		if (rdbtnNewRadioButton_1 == null) {
-			rdbtnNewRadioButton_1 = new JRadioButton("");
-			rdbtnNewRadioButton_1.setBounds(257, 247, 26, 23);
-
-			rdbtnNewRadioButton_1.setOpaque(false);
-			rdbtnNewRadioButton_1.setContentAreaFilled(false);
-			rdbtnNewRadioButton_1.setBorderPainted(false);
-		}
-		return rdbtnNewRadioButton_1;
-	}
+	
 
 	public EdicaoCalcadosView() {
-		setTitle("Editar Calcados");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 856, 591);
+		setBounds(100, 100, 856, 587);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		contentPane.add(getDescricao());
-		contentPane.add(getGenero());
-		contentPane.add(getTipo());
+		contentPane.add(getEsporteCal());
 		contentPane.add(getPreco());
 		contentPane.add(getTamanho());
 		contentPane.add(getCor());
+		contentPane.add(getMarcaCal());
 		contentPane.add(getOk());
 		contentPane.add(getcancelar());
 		contentPane.add(getpesquisar());
 		contentPane.add(getPesquisaCal());
-		contentPane.add(getRdbtnNewRadioButton());
-		contentPane.add(getRdbtnNewRadioButton_1());
+		contentPane.add(getFemRadioButton());
+		contentPane.add(getMasclRadioButton());
 
 		JLabel background = new JLabel("");
 		background.setIcon(

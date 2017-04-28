@@ -17,7 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
-public class CadastroCalcadosView extends JFrame {
+public class CadastroCalcadoView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
@@ -34,7 +34,7 @@ public class CadastroCalcadosView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CadastroCalcadosView frame = new CadastroCalcadosView();
+					CadastroCalcadoView frame = new CadastroCalcadoView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -82,7 +82,7 @@ public class CadastroCalcadosView extends JFrame {
 	public JTextField getPreco() {
 		if (precoCal == null) {
 			precoCal = new JTextField();
-			precoCal.setBounds(169, 286, 113, 20);
+			precoCal.setBounds(169, 292, 113, 20);
 			
 			precoCal.setColumns(10);
 		}
@@ -111,7 +111,7 @@ public class CadastroCalcadosView extends JFrame {
 
 	public JButton getOk() {
 		JButton ok = new JButton("");
-		ok.setIcon(new ImageIcon(CadastroCalcadosView.class.getResource("/br/inatel/ec206/imagens/botao_add_laranja120.png")));
+		ok.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\botao_add_laranja120.png"));
 		ok.setBounds(138, 443, 153, 53);
 		
 
@@ -127,7 +127,7 @@ public class CadastroCalcadosView extends JFrame {
 
 	public JButton getcancelar() {
 		JButton cancelar = new JButton("");
-		cancelar.setIcon(new ImageIcon(CadastroCalcadosView.class.getResource("/br/inatel/ec206/imagens/x.png")));
+		cancelar.setIcon(new ImageIcon("C:\\Users\\patricia\\Desktop\\imagens_trabalho\\x.png"));
 		cancelar.setBounds(22, 456, 89, 40);
 		
 		cancelar.setOpaque(false);
@@ -142,7 +142,7 @@ public class CadastroCalcadosView extends JFrame {
 
 	public JRadioButton getFemRadioButton() {
 		JRadioButton FemRadioButton = new JRadioButton("");
-		FemRadioButton.setBounds(193, 198, 29, 23);
+		FemRadioButton.setBounds(193, 198, 21, 23);
 
 		FemRadioButton.setOpaque(false);
 		FemRadioButton.setContentAreaFilled(false);
@@ -152,7 +152,7 @@ public class CadastroCalcadosView extends JFrame {
 
 	public JRadioButton getMasclRadioButton() {
 		JRadioButton MasclRadioButton = new JRadioButton("");
-		MasclRadioButton.setBounds(260, 198, 31, 23);
+		MasclRadioButton.setBounds(260, 198, 22, 23);
 
 		MasclRadioButton.setOpaque(false);
 		MasclRadioButton.setContentAreaFilled(false);
@@ -161,8 +161,7 @@ public class CadastroCalcadosView extends JFrame {
 		return MasclRadioButton;
 	}
 
-	public CadastroCalcadosView() {
-		setTitle("Cadastro de Calcados");
+	public CadastroCalcadoView() {
 
 		JPanel contentPane = new JPanel();
 		contentPane.setBounds(0, 0, 784, 545);
@@ -189,7 +188,7 @@ public class CadastroCalcadosView extends JFrame {
 		contentPane.add(getMarcaCal());
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(CadastroCalcadosView.class.getResource("/br/inatel/ec206/imagens/cadastroCalcado.png")));
+		lblNewLabel.setIcon(new ImageIcon(CadastroCalcadoView.class.getResource("/br/inatel/ec206/imagens/cadastroCalcado.png")));
 		lblNewLabel.setBounds(0, 0, 784, 545);
 		contentPane.add(lblNewLabel);
 

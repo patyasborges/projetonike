@@ -18,6 +18,7 @@ public class CalcadosDAO {
 	double Preco_calc;
 	int Tamanho_calc;
 	String Cor_calc;
+	int ID_marca;
 
 	// ---------------------------------------------------------------------
 
@@ -248,5 +249,17 @@ public class CalcadosDAO {
 	public void setID_calcado(int iD_calcado) {
 		ID_calcado = iD_calcado;
 	}
+
+	public void setID_esporte(int id_esporte) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setID_marca(int id_marca) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 
 }

@@ -9,6 +9,8 @@ public class Calcados {
 	private double Preco_calc;
 	private int Tamanho_calc;
 	private String Cor_calc;
+	private int ID_esporte;
+	private int ID_marca;
 
 	public String getDescricao_calc() {
 		return Descricao_calc;
@@ -64,6 +66,16 @@ public class Calcados {
 
 	public void setID_calcados(int iD_calcados) {
 		ID_calcados = iD_calcados;
+	}
+
+	public int getID_esporte() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getID_marca() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	
