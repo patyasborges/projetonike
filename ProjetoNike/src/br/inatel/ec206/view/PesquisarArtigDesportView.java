@@ -105,7 +105,7 @@ public class PesquisarArtigDesportView extends JFrame {
 	public JTextField getTxtPesquisa() {
 		if (txtPesquisa == null) {
 			txtPesquisa = new JTextField();
-			txtPesquisa.setBounds(188, 130, 146, 26);
+			txtPesquisa.setBounds(188, 121, 146, 26);
 			txtPesquisa.setColumns(10);
 		}
 		return txtPesquisa;
@@ -176,7 +176,7 @@ public class PesquisarArtigDesportView extends JFrame {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(DeletaArtigDesportView.class.getResource("/br/inatel/ec206/imagens/remocarArtigos.png")));
+			lblNewLabel.setIcon(new ImageIcon(PesquisarArtigDesportView.class.getResource("/br/inatel/ec206/imagens/pesquisaArtigos.png")));
 			lblNewLabel.setBounds(0, 0, 840, 550);
 		}
 		return lblNewLabel;

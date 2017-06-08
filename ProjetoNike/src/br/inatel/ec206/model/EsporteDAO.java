@@ -35,7 +35,6 @@ public class EsporteDAO
 				 } 
 				 catch (SQLException ex) 
 				 {
-					 System.out.println("erro aqui");
 					 System.out.println("Erro: Conexão Banco! :(");
 				 }
 				 finally
@@ -61,65 +60,7 @@ public class EsporteDAO
 					 }
 				 }
 			}
-
-
-			// (2.1) SELECT ALL: Seleciona todos os registros desta tabela.
-			 public List<Esporte> selecionaTodos() //MUDAR
-			 {
-				 // Lista que recebera todos os registros desta tabela
-				 List<Esporte> listaEsporte = new ArrayList<>();
-				 try 
-				 {
-					 // Conecto com o Banco
-					 conecta.conectaBanco();
-					 // O metodo createStatement() cria um objeto Statement que permite enviar comandos
-					 //SQL para o banco.
-					 conecta._st = conecta._con.createStatement();
-					 // O ResultSet gera uma tabela de dados retornados por uma pesquisa SQL.
-					 conecta._rs = conecta._st.executeQuery("SELECT * FROM Esportes");
-					 // O metodo next() caminha entre as linhas da tabela de resultados retornada.
-					 while (conecta._rs.next()) 
-					 {
-						 // A cada nova interacao, cria um novo objeto Livro
-						 Esporte esp = new Esporte();
-						 esp.setID_Esporte(conecta._rs.getInt(1));
-						 esp.setNome_Esporte(conecta._rs.getString(2));
-						 
-						 // Adiciono na lista
-						 listaEsporte.add(esp);
-					 }
-					 System.out.println("Sucesso! ;)");
-				 } 
-				 catch (SQLException ex) 
-				 {
-					 System.out.println("Erro: Conexão Banco! :(");
-				 }
-				 finally
-				 {
-					 // Independente se a conexao deu certo ou errado, fecha as conexoes pendentes
-					 try
-					 {
-						 if (conecta._rs != null)
-						 {
-							 conecta._rs.close();
-						 }
-						 if (conecta._st != null)
-						 {
-							 conecta._st.close();
-						 }
-						 if (conecta._con != null) 
-						 {
-							 conecta._con.close();
-						 }
-					 } 
-					 catch (SQLException ex) 
-					 {
-						 System.out.println("Erro: Conexão não pode ser fechada! :(");
-					 }
-				 }
-				 return listaEsporte;
-			 }
-			 
+			
 			// (2.2) SELECT POR NOME OU POR PARTE DE UM NOME
 			 public List<Esporte> selecionaPorNome()
 			 {

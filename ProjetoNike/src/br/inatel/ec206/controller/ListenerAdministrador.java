@@ -10,7 +10,6 @@ import br.inatel.ec206.view.CadastroEsporteView;
 import br.inatel.ec206.view.CadastroMarcaView;
 import br.inatel.ec206.view.CadastroUsuarioView;
 import br.inatel.ec206.view.CadastroVestuarioView;
-import br.inatel.ec206.view.ClienteView;
 import br.inatel.ec206.view.DeletaArtigDesportView;
 import br.inatel.ec206.view.DeletaCalcadoView;
 import br.inatel.ec206.view.DeletaEsporteView;
@@ -20,13 +19,7 @@ import br.inatel.ec206.view.DeletaVestuarioView;
 import br.inatel.ec206.view.EdicaoArtigDesportView;
 import br.inatel.ec206.view.EdicaoEsporteView;
 import br.inatel.ec206.view.EdicaoMarcaView;
-import br.inatel.ec206.view.EdicaoUsuarioView;
 import br.inatel.ec206.view.EdicaoVestuarioView;
-import br.inatel.ec206.view.PesquisarArtigDesportView;
-import br.inatel.ec206.view.PesquisarCalcadoView;
-import br.inatel.ec206.view.PesquisarEsporteView;
-import br.inatel.ec206.view.PesquisarMarcaView;
-import br.inatel.ec206.view.PesquisarVestuarioView;
 
 public class ListenerAdministrador implements ActionListener
 {

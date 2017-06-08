@@ -19,7 +19,11 @@ import javax.swing.JComboBox;
 
 public class CadastroCalcadoView extends JFrame {
 
-	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8264441302331688495L;
 
 	ListenerCadCalcado listener = ListenerCadCalcado.getInstance(this);
 

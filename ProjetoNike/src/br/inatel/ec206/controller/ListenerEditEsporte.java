@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import br.inatel.ec206.model.Esporte;
 import br.inatel.ec206.model.EsporteDAO;
 import br.inatel.ec206.model.Marcas;
@@ -34,37 +36,54 @@ public class ListenerEditEsporte implements ActionListener
 		// TODO Auto-generated method stub
 		if (event.getActionCommand() == "PESQUISAR") 
 		{
-			EsporteDAO esporte = new EsporteDAO();
-			List<Esporte> listaEsporte = new ArrayList<>();
 			
-			int idEsporte;
-			String esportes;
-			
-			esporte.setNome_Esporte(editaEsporte.getTxtPesquisar().getText());
+			if(editaEsporte.getTxtPesquisar().getText().equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "Digite os Dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
+			}
+			else
+			{
+				EsporteDAO esporte = new EsporteDAO();
+				List<Esporte> listaEsporte = new ArrayList<>();
+				
+				int idEsporte;
+				String esportes;
+				
+				esporte.setNome_Esporte(editaEsporte.getTxtPesquisar().getText());
 
-			listaEsporte= esporte.selecionaPorNome();
-			idEsporte = listaEsporte.get(0).getID_Esporte();
-			esportes= listaEsporte.get(0).getNome_Esporte();
+				listaEsporte= esporte.selecionaPorNome();
+				idEsporte = listaEsporte.get(0).getID_Esporte();
+				esportes= listaEsporte.get(0).getNome_Esporte();
+				
+				esporte.setID_Esporte(idEsporte);
+				editaEsporte.getTxtEsporte().setText(esportes);
+			}
 			
-			esporte.setID_Esporte(idEsporte);
-			editaEsporte.getTxtEsporte().setText(esportes);
 			
 		}
 		
 		if (event.getActionCommand() == "EDITAR") 
 		{
-			EsporteDAO esporte = new EsporteDAO();
-			List<Esporte> listaEsporte = new ArrayList<>();
-			
-			int idEsporte;
-			esporte.setNome_Esporte(editaEsporte.getTxtPesquisar().getText());
+			if(editaEsporte.getTxtEsporte().getText().equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "Digite os Dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
+			}
+			else
+			{
+				EsporteDAO esporte = new EsporteDAO();
+				List<Esporte> listaEsporte = new ArrayList<>();
+				
+				int idEsporte;
+				esporte.setNome_Esporte(editaEsporte.getTxtPesquisar().getText());
 
-			listaEsporte= esporte.selecionaPorNome();
-			idEsporte = listaEsporte.get(0).getID_Esporte();
+				listaEsporte= esporte.selecionaPorNome();
+				idEsporte = listaEsporte.get(0).getID_Esporte();
+				
+				esporte.setID_Esporte(idEsporte);
+				esporte.setNome_Esporte(editaEsporte.getTxtEsporte().getText());
+				esporte.update();
+			}
 			
-			esporte.setID_Esporte(idEsporte);
-			esporte.setNome_Esporte(editaEsporte.getTxtEsporte().getText());
-			esporte.update();
 		}
 		
 		if (event.getActionCommand() == "SAIR") 

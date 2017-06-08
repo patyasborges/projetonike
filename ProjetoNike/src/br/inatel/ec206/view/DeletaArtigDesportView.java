@@ -19,6 +19,10 @@ import java.awt.Color;
 
 public class DeletaArtigDesportView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8441783703654967859L;
 	private JPanel contentPane;
 	private JButton btnDeletar;
 	private JButton btnSair;

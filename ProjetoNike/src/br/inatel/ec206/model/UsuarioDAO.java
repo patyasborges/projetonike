@@ -19,10 +19,13 @@ public class UsuarioDAO
 	String email_usu;
 	int Tipo_usu;
 	String Senha_usu;
+	public String usu_logado;
 
 		 //---------------------------------------------------------------------
 	
-	// (1) INSERT
+
+
+		// (1) INSERT
 		 public void armazenaNovosDados()
 		 {
 			 // Conecto com o Banco
@@ -290,6 +293,13 @@ public class UsuarioDAO
 				Senha_usu = senha_usu;
 			}
 
+			public String getUsu_logado() {
+				return usu_logado;
+			}
 
-			
+			public void setUsu_logado(String usu_logado) {
+				this.usu_logado = usu_logado;
+			}
+
+
 }

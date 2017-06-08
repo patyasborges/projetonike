@@ -81,7 +81,7 @@ public class PesquisarCalcadoView extends JFrame {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(DeletaCalcadoView.class.getResource("/br/inatel/ec206/imagens/remocaoCalcados.png")));
+			lblNewLabel.setIcon(new ImageIcon(PesquisarCalcadoView.class.getResource("/br/inatel/ec206/imagens/pesquisaCalcados.png")));
 			lblNewLabel.setBounds(0, 0, 840, 548);
 		}
 		return lblNewLabel;
@@ -127,7 +127,7 @@ public class PesquisarCalcadoView extends JFrame {
 	private JTextField getTextField_2() {
 		if (textField_2 == null) {
 			textField_2 = new JTextField();
-			textField_2.setBounds(181, 286, 113, 20);
+			textField_2.setBounds(181, 279, 113, 20);
 			textField_2.setColumns(10);
 		}
 		return textField_2;
@@ -159,7 +159,7 @@ public class PesquisarCalcadoView extends JFrame {
 	private JTextField getTextField_6() {
 		if (textField_6 == null) {
 			textField_6 = new JTextField();
-			textField_6.setBounds(181, 358, 113, 20);
+			textField_6.setBounds(181, 352, 113, 20);
 			textField_6.setColumns(10);
 		}
 		return textField_6;
@@ -167,7 +167,7 @@ public class PesquisarCalcadoView extends JFrame {
 	private JTextField getTextField_7() {
 		if (textField_7 == null) {
 			textField_7 = new JTextField();
-			textField_7.setBounds(181, 402, 113, 20);
+			textField_7.setBounds(181, 388, 113, 20);
 			textField_7.setColumns(10);
 		}
 		return textField_7;
@@ -175,7 +175,7 @@ public class PesquisarCalcadoView extends JFrame {
 	private JTextField getTextField_8() {
 		if (textField_8 == null) {
 			textField_8 = new JTextField();
-			textField_8.setBounds(181, 440, 113, 20);
+			textField_8.setBounds(181, 424, 113, 20);
 			textField_8.setColumns(10);
 		}
 		return textField_8;

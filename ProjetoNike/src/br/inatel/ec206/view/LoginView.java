@@ -1,30 +1,38 @@
 package br.inatel.ec206.view;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.inatel.ec206.controller.ListenerEditArtigDesport;
 import br.inatel.ec206.controller.ListenerLogin;
 
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
-public class LoginView extends JFrame  {
+public class LoginView extends JFrame {
 
-	private static final long serialVersionUID = 1L;
-	
-	ListenerLogin  listener = ListenerLogin.getInstance(this);
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6236825665513062648L;
 	private JPanel contentPane;
-	private JTextField UsuariotextField;
-	private JPasswordField passwordField;
+	private JTextField UsuarioTextField;
+	private JTextField PasswordField;
+	private JButton btnEntrar;
+	private JRadioButton rdbtnCliente;
+	private JRadioButton rdbtnAdm;
+	
+	ListenerLogin listener = ListenerLogin.getInstance(this);
+	private JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -45,69 +53,78 @@ public class LoginView extends JFrame  {
 	/**
 	 * Create the frame.
 	 */
-	public JButton getSair() {
-		JButton sairButton = new JButton("");
-		sairButton.setIcon(new ImageIcon(LoginView.class.getResource("/br/inatel/ec206/imagens/botaoXlogin.png")));
-		sairButton.setBounds(42, 375, 133, 89);
-		contentPane.add(sairButton);
-		sairButton.setOpaque(false);
-		sairButton.setContentAreaFilled(false);
-		sairButton.setBorderPainted(false);
-		sairButton.setActionCommand("SAIR");
-
-		return sairButton;
-	}
-
-	public JTextField getUsuariotextField() {
-		if (UsuariotextField == null) {
-			UsuariotextField = new JTextField();
-			UsuariotextField.setBounds(143, 204, 151, 20);
-			contentPane.add(UsuariotextField);
-			UsuariotextField.setColumns(10);
-		}
-		return UsuariotextField;
-	}
-	public JButton getEntrarButton(){
-		JButton entrarButton = new JButton("");
-		entrarButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		entrarButton.setIcon(new ImageIcon(LoginView.class.getResource("/br/inatel/ec206/imagens/entrar_login.png")));
-		entrarButton.setBounds(234, 380, 198, 84);
-		contentPane.add(entrarButton);
-		entrarButton.setOpaque(false);
-		entrarButton.setContentAreaFilled(false);
-		entrarButton.setBorderPainted(false);
-		entrarButton.setActionCommand("ENTRAR");
-		
-		return entrarButton;
-	}
-	public JPasswordField getPasswordField(){
-		passwordField = new JPasswordField();
-		passwordField.setBounds(143, 272, 151, 20);
-		contentPane.add(passwordField);
-		return passwordField;
-	}
-
 	public LoginView() {
+		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 850, 579);
+		setBounds(100, 100, 844, 603);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		contentPane.add(getSair());
-		contentPane.add(getUsuariotextField());
-		contentPane.add(getEntrarButton());
-		contentPane.add(getPasswordField());	
-
-		
-
-		JLabel backgroundLabel = new JLabel("");
-		backgroundLabel.setIcon(new ImageIcon(LoginView.class.getResource("/br/inatel/ec206/imagens/login.png")));
-		backgroundLabel.setBounds(0, 0, 834, 540);
-		contentPane.add(backgroundLabel);
+		contentPane.add(getUsuarioTextField());
+		contentPane.add(getPasswordField());
+		contentPane.add(getBtnEntrar());
+		contentPane.add(getRdbtnCliente());
+		contentPane.add(getRdbtnAdm());
+		contentPane.add(getLblNewLabel());
+	}
+	public JTextField getUsuarioTextField() {
+		if (UsuarioTextField == null) {
+			UsuarioTextField = new JTextField();
+			UsuarioTextField.setBounds(149, 207, 247, 26);
+			UsuarioTextField.setColumns(10);
+		}
+		return UsuarioTextField;
+	}
+	public JTextField getPasswordField() {
+		if (PasswordField == null) {
+			PasswordField = new JTextField();
+			PasswordField.setBounds(149, 272, 247, 26);
+			PasswordField.setColumns(10);
+		}
+		return PasswordField;
+	}
+	private JButton getBtnEntrar()
+	{
+		if (btnEntrar == null) {
+			btnEntrar = new JButton("");
+			btnEntrar.setIcon(new ImageIcon(LoginView.class.getResource("/br/inatel/ec206/imagens/entrar_login.png")));
+			btnEntrar.setBounds(79, 422, 216, 83);
+			btnEntrar.setActionCommand("ENTRAR");
+			btnEntrar.addActionListener(listener);
+			btnEntrar.setOpaque(false);
+			btnEntrar.setContentAreaFilled(false);
+			btnEntrar.setBorderPainted(false);
+			
+		}
+		return btnEntrar;
+	}
+	public JRadioButton getRdbtnCliente() {
+		if (rdbtnCliente == null) {
+			rdbtnCliente = new JRadioButton("Cliente");
+			rdbtnCliente.setBackground(Color.BLACK);
+			rdbtnCliente.setForeground(Color.WHITE);
+			rdbtnCliente.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			rdbtnCliente.setBounds(56, 352, 109, 27);
+		}
+		return rdbtnCliente;
+	}
+	public JRadioButton getRdbtnAdm() {
+		if (rdbtnAdm == null) {
+			rdbtnAdm = new JRadioButton("Administrador");
+			rdbtnAdm.setBackground(Color.BLACK);
+			rdbtnAdm.setForeground(Color.WHITE);
+			rdbtnAdm.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			rdbtnAdm.setBounds(201, 352, 173, 27);
+		}
+		return rdbtnAdm;
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("");
+			lblNewLabel.setIcon(new ImageIcon(LoginView.class.getResource("/br/inatel/ec206/imagens/login.png")));
+			lblNewLabel.setBounds(0, 0, 822, 550);
+		}
+		return lblNewLabel;
 	}
 }

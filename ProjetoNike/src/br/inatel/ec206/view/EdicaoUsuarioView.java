@@ -2,12 +2,16 @@ package br.inatel.ec206.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.List;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import br.inatel.ec206.controller.ListenerEditUsuario;
+import br.inatel.ec206.model.UsuarioDAO;
+import br.inatel.ec206.model.Usuario;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -24,19 +28,16 @@ public class EdicaoUsuarioView extends JFrame {
 	private static final long serialVersionUID = 3622373046369348333L;
 	
 	private JPanel contentPane;
-	public JTextField txtPesquisar;
+	public JTextField txtSenha;
 	public JTextField txtNome;
 	private JTextField txtDataNascimento;
 	private JTextField txtEmail;
-	private JRadioButton rdbtnCliente;
-	private JRadioButton rdbtnAdministrador;
 	private JButton btnPesquisar;
 	private JButton btnEditar;
 	private JButton btnSair;
 
 	
 	ListenerEditUsuario listener = ListenerEditUsuario.getInstance(this);
-	private JTextField txtSenha;
 	private JLabel lblNewLabel_6;
 	
 	/**
@@ -66,30 +67,29 @@ public class EdicaoUsuarioView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(getTxtPesquisar());
+		contentPane.add(getTxtSenha());
 		contentPane.add(getTxtNome());
 		contentPane.add(getTxtDataNascimento());
 		contentPane.add(getTxtEmail());
-		contentPane.add(getRdbtnCliente());
-		contentPane.add(getRdbtnAdministrador());
 		contentPane.add(getBtnPesquisar());
 		contentPane.add(getBtnEditar());
 		contentPane.add(getBtnSair());
-		contentPane.add(getTxtSenha());
 		contentPane.add(getLblNewLabel_6());
+		
+		initialize();
 	}
-	public JTextField getTxtPesquisar() {
-		if (txtPesquisar == null) {
-			txtPesquisar = new JTextField();
-			txtPesquisar.setBounds(255, 134, 256, 26);
-			txtPesquisar.setColumns(10);
+	public JTextField getTxtSenha() {
+		if (txtSenha == null) {
+			txtSenha = new JTextField();
+			txtSenha.setBounds(255, 324, 256, 26);
+			txtSenha.setColumns(10);
 		}
-		return txtPesquisar;
+		return txtSenha;
 	}
 	public JTextField getTxtNome() {
 		if (txtNome == null) {
 			txtNome = new JTextField();
-			txtNome.setBounds(255, 204, 256, 26);
+			txtNome.setBounds(255, 195, 256, 26);
 			txtNome.setColumns(10);
 		}
 		return txtNome;
@@ -97,7 +97,7 @@ public class EdicaoUsuarioView extends JFrame {
 	public JTextField getTxtDataNascimento() {
 		if (txtDataNascimento == null) {
 			txtDataNascimento = new JTextField();
-			txtDataNascimento.setBounds(255, 246, 256, 26);
+			txtDataNascimento.setBounds(255, 240, 256, 26);
 			txtDataNascimento.setColumns(10);
 		}
 		return txtDataNascimento;
@@ -105,26 +105,10 @@ public class EdicaoUsuarioView extends JFrame {
 	public JTextField getTxtEmail() {
 		if (txtEmail == null) {
 			txtEmail = new JTextField();
-			txtEmail.setBounds(255, 288, 256, 26);
+			txtEmail.setBounds(255, 282, 256, 26);
 			txtEmail.setColumns(10);
 		}
 		return txtEmail;
-	}
-	public JRadioButton getRdbtnCliente() {
-		if (rdbtnCliente == null) {
-			rdbtnCliente = new JRadioButton("");
-			rdbtnCliente.setBackground(Color.BLACK);
-			rdbtnCliente.setBounds(138, 326, 29, 29);
-		}
-		return rdbtnCliente;
-	}
-	public JRadioButton getRdbtnAdministrador() {
-		if (rdbtnAdministrador == null) {
-			rdbtnAdministrador = new JRadioButton("");
-			rdbtnAdministrador.setBackground(Color.BLACK);
-			rdbtnAdministrador.setBounds(271, 326, 29, 29);
-		}
-		return rdbtnAdministrador;
 	}
 	private JButton getBtnPesquisar() {
 		if (btnPesquisar == null) {
@@ -165,20 +149,37 @@ public class EdicaoUsuarioView extends JFrame {
 		}
 		return btnSair;
 	}
-	public JTextField getTxtSenha() {
-		if (txtSenha == null) {
-			txtSenha = new JTextField();
-			txtSenha.setBounds(255, 381, 256, 26);
-			txtSenha.setColumns(10);
-		}
-		return txtSenha;
-	}
 	private JLabel getLblNewLabel_6() {
 		if (lblNewLabel_6 == null) {
 			lblNewLabel_6 = new JLabel("");
-			lblNewLabel_6.setIcon(new ImageIcon(EdicaoUsuarioView.class.getResource("/br/inatel/ec206/imagens/edicaoUsuarios.png")));
+			lblNewLabel_6.setIcon(new ImageIcon(EdicaoUsuarioView.class.getResource("/br/inatel/ec206/imagens/edicaoUsuarios2.png")));
 			lblNewLabel_6.setBounds(0, 0, 820, 535);
 		}
 		return lblNewLabel_6;
+	}
+	
+	private void initialize() 
+	{
+		Usuario usu= new Usuario();
+		UsuarioDAO usuDAO= new UsuarioDAO();
+		
+		
+		java.util.List<Usuario> listaUsu = new ArrayList<>();
+		String nome, data, email, senha;
+		
+		nome= usu.getUsu_logado();
+		usuDAO.setNome_usu(nome);
+		listaUsu= usuDAO.selecionaPorNome();
+		
+		data = listaUsu.get(0).getData_nascimento_usu();
+		email = listaUsu.get(0).getEmail_usu();
+		senha = listaUsu.get(0).getSenha_usu();
+		
+		txtNome.setText(nome);
+		txtDataNascimento.setText(data);
+		txtEmail.setText(email);
+		txtSenha.setText(senha);
+		
+		
 	}
 }

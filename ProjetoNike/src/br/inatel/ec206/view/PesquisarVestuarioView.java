@@ -100,7 +100,7 @@ public class PesquisarVestuarioView extends JFrame {
 			btnSair = new JButton("");
 			btnSair.setIcon(new ImageIcon(DeletaVestuarioView.class.getResource("/br/inatel/ec206/imagens/sairBranco.png")));
 			btnSair.setActionCommand("SAIR");
-			btnSair.setBounds(193, 457, 115, 48);
+			btnSair.setBounds(193, 473, 115, 48);
 			btnSair.addActionListener(listener);
 			btnSair.setOpaque(false);
 			btnSair.setContentAreaFilled(false);
@@ -174,7 +174,7 @@ public class PesquisarVestuarioView extends JFrame {
 	private JLabel getLblNewLabel_1() {
 		if (lblNewLabel_1 == null) {
 			lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(DeletaVestuarioView.class.getResource("/br/inatel/ec206/imagens/remocaoVestuario.png")));
+			lblNewLabel_1.setIcon(new ImageIcon(PesquisarVestuarioView.class.getResource("/br/inatel/ec206/imagens/pesquisaVestuario.png")));
 			lblNewLabel_1.setBounds(0, 0, 828, 542);
 		}
 		return lblNewLabel_1;

@@ -19,6 +19,10 @@ import java.awt.Color;
 
 public class AdministradorView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5049292873739226958L;
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
 	private JMenuBar menuBar;

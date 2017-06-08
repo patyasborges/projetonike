@@ -108,7 +108,7 @@ public class PesquisarMarcaView extends JFrame {
 	private JLabel getLblNewLabel_2() {
 		if (lblNewLabel_2 == null) {
 			lblNewLabel_2 = new JLabel("");
-			lblNewLabel_2.setIcon(new ImageIcon(DeletaMarcaView.class.getResource("/br/inatel/ec206/imagens/remocaoMarca.png")));
+			lblNewLabel_2.setIcon(new ImageIcon(PesquisarMarcaView.class.getResource("/br/inatel/ec206/imagens/pesquisaMarca.png")));
 			lblNewLabel_2.setBounds(0, 0, 844, 545);
 		}
 		return lblNewLabel_2;

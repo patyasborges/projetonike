@@ -8,7 +8,14 @@ public class Usuario
 	String email_usu;
 	int Tipo_usu;
 	String Senha_usu;
+	public static String usu_logado;
 	
+	public String getUsu_logado() {
+		return usu_logado;
+	}
+	public void setUsu_logado(String usu_logado) {
+		this.usu_logado = usu_logado;
+	}
 	public String getSenha_usu() {
 		return Senha_usu;
 	}

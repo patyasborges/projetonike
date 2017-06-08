@@ -1,16 +1,13 @@
 package br.inatel.ec206.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import br.inatel.ec206.controller.ListenerCadArtigDesport;
 import br.inatel.ec206.controller.ListenerCliente;
 
-import javax.swing.JToolBar;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -20,6 +17,10 @@ import java.awt.Color;
 
 public class ClienteView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4588969551860868011L;
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenu mnPesquisar;

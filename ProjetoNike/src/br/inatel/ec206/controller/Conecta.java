@@ -48,6 +48,7 @@ public class Conecta
 			 {
 				 // Objeto que estabelece uma conexao com o Banco de Dados, usando a URL, usuario e senha
 				 _con = DriverManager.getConnection(_url, _user, _password);
+				 System.out.println("Conectado");
 			 } 
 			 catch (SQLException ex) 
 			 {

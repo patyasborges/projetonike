@@ -19,6 +19,10 @@ import java.awt.Color;
 public class CadastroUsuarioView extends JFrame 
 {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6602906066821793183L;
 	private JPanel contentPane;
 	public JTextField txtNome;
 	public JTextField txtDataNascimento;

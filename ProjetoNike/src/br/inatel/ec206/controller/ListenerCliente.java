@@ -3,8 +3,6 @@ package br.inatel.ec206.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import br.inatel.ec206.view.CadastroArtigDesportView;
-import br.inatel.ec206.view.CadastroCalcadoView;
 import br.inatel.ec206.view.ClienteView;
 import br.inatel.ec206.view.EdicaoUsuarioView;
 import br.inatel.ec206.view.PesquisarArtigDesportView;

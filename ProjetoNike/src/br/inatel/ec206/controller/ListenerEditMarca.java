@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import br.inatel.ec206.model.Marcas;
 import br.inatel.ec206.model.MarcasDAO;
 import br.inatel.ec206.model.Vestuario;
@@ -34,37 +36,55 @@ public class ListenerEditMarca implements ActionListener
 		// TODO Auto-generated method stub
 		if (event.getActionCommand() == "PESQUISAR") 
 		{
-			MarcasDAO marca = new MarcasDAO();
-			List<Marcas> listaMarca = new ArrayList<>();
 			
-			int idMarca;
-			String marcas;
-			
-			marca.setNome_marca(editaMarca.getTxtPesquisar().getText());
+			if(editaMarca.getTxtPesquisar().getText().equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "Digite os Dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
+			}
+			else
+			{
+				MarcasDAO marca = new MarcasDAO();
+				List<Marcas> listaMarca = new ArrayList<>();
+				
+				int idMarca;
+				String marcas;
+				
+				marca.setNome_marca(editaMarca.getTxtPesquisar().getText());
 
-			listaMarca= marca.selecionaPorNome();
-			idMarca = listaMarca.get(0).getID_marca();
-			marcas= listaMarca.get(0).getNome_marca();
-			
-			marca.setID_marca(idMarca);
-			editaMarca.getTxtMarca().setText(marcas);
+				listaMarca= marca.selecionaPorNome();
+				idMarca = listaMarca.get(0).getID_marca();
+				marcas= listaMarca.get(0).getNome_marca();
+				
+				marca.setID_marca(idMarca);
+				editaMarca.getTxtMarca().setText(marcas);
+				
+			}
 			
 		}
 		
 		if (event.getActionCommand() == "EDITAR") 
 		{
-			MarcasDAO marca = new MarcasDAO();
-			List<Marcas> listaMarca = new ArrayList<>();
-			
-			int idMarca;
-			marca.setNome_marca(editaMarca.getTxtPesquisar().getText());
+			if(editaMarca.getTxtMarca().getText().equals(""))
+			{
+				JOptionPane.showMessageDialog(null, "Digite os Dados!", "Aviso", JOptionPane.WARNING_MESSAGE);
+			}
+			else
+			{
+				MarcasDAO marca = new MarcasDAO();
+				List<Marcas> listaMarca = new ArrayList<>();
+				
+				int idMarca;
+				marca.setNome_marca(editaMarca.getTxtPesquisar().getText());
 
-			listaMarca= marca.selecionaPorNome();
-			idMarca = listaMarca.get(0).getID_marca();
+				listaMarca= marca.selecionaPorNome();
+				idMarca = listaMarca.get(0).getID_marca();
+				
+				marca.setID_marca(idMarca);
+				marca.setNome_marca(editaMarca.getTxtMarca().getText());
+				marca.update();
+			}
 			
-			marca.setID_marca(idMarca);
-			marca.setNome_marca(editaMarca.getTxtMarca().getText());
-			marca.update();
+			
 		}
 		
 		if (event.getActionCommand() == "SAIR") 

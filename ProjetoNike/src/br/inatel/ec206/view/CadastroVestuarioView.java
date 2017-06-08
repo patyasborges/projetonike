@@ -21,6 +21,10 @@ import java.awt.Font;
 
 public class CadastroVestuarioView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8255884197704715460L;
 	private JPanel contentPane;
 	private JButton btnCadastrar;
 	private JButton btnSair;

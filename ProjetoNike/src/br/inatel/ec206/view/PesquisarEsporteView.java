@@ -108,7 +108,7 @@ public class PesquisarEsporteView extends JFrame {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(DeletaEsporteView.class.getResource("/br/inatel/ec206/imagens/remocaoEsporte.png")));
+			lblNewLabel.setIcon(new ImageIcon(PesquisarEsporteView.class.getResource("/br/inatel/ec206/imagens/pesquisaEsporte.png")));
 			lblNewLabel.setBounds(0, 0, 841, 548);
 		}
 		return lblNewLabel;
